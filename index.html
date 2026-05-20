@@ -3,53 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>RESTAURANT DYNAN | Fine Dining & Viral</title>
+    <title>RESTAURANT DYNAN | Ultra Premium Fine Dining</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.2s ease;
         }
 
-        /* Tema Terang (default) */
+        /* Tema Terang (Ultra Premium) */
         :root {
-            --bg-body: #fefaf5;
-            --bg-card: #ffffff;
-            --text-primary: #2c2418;
-            --text-secondary: #5c4b37;
-            --accent: #b85c1a;
-            --accent-light: #e67e22;
-            --border: #f0e4d5;
-            --shadow: 0 10px 30px -12px rgba(0,0,0,0.08);
-            --hero-bg: linear-gradient(135deg, #fff6ed 0%, #ffeedd 100%);
-            --navbar-bg: rgba(255, 255, 255, 0.96);
-            --footer-bg: #2c2418;
-            --footer-text: #d1c0b0;
+            --bg-body: #faf8f4;
+            --bg-card: rgba(255, 255, 255, 0.98);
+            --bg-nav: rgba(255, 255, 255, 0.95);
+            --text-primary: #1e1a16;
+            --text-secondary: #5a4a3a;
+            --accent-gold: #d4af37;
+            --accent-gold-dark: #b8942e;
+            --accent-gold-light: #f5e2b0;
+            --border: rgba(212, 175, 55, 0.3);
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 45px -12px rgba(0, 0, 0, 0.15);
+            --hero-bg: linear-gradient(135deg, #fff9ef 0%, #fdf3e3 100%);
+            --footer-bg: #1a1612;
+            --footer-text: #b8a99a;
         }
 
         body.dark {
-            --bg-body: #121212;
-            --bg-card: #1e1e1e;
-            --text-primary: #f0ede8;
-            --text-secondary: #c0b8a8;
-            --accent: #e67e22;
-            --accent-light: #f39c12;
-            --border: #2c2c2c;
-            --shadow: 0 10px 30px -8px rgba(0,0,0,0.5);
-            --hero-bg: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-            --navbar-bg: rgba(30, 30, 30, 0.96);
-            --footer-bg: #0a0a0a;
-            --footer-text: #8a7a6a;
+            --bg-body: #0f0e0c;
+            --bg-card: rgba(25, 23, 20, 0.97);
+            --bg-nav: rgba(15, 14, 12, 0.97);
+            --text-primary: #f0ece5;
+            --text-secondary: #bcae9e;
+            --accent-gold: #e6c35c;
+            --accent-gold-dark: #d4af37;
+            --accent-gold-light: #f5e6b3;
+            --border: rgba(230, 195, 92, 0.35);
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+            --hero-bg: linear-gradient(135deg, #1a1814 0%, #211e1a 100%);
+            --footer-bg: #080706;
+            --footer-text: #7a6e62;
         }
 
         body {
@@ -57,16 +62,16 @@
             color: var(--text-primary);
         }
 
-        /* Navbar */
+        /* Navbar Elegan */
         .navbar {
-            background: var(--navbar-bg);
-            backdrop-filter: blur(12px);
-            padding: 1rem 2rem;
+            background: var(--bg-nav);
+            backdrop-filter: blur(16px);
+            padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: var(--shadow-sm);
         }
         .nav-container {
             max-width: 1300px;
@@ -78,41 +83,46 @@
             gap: 1rem;
         }
         .logo h1 {
-            font-size: 1.7rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent), #f4a261);
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: -0.5px;
         }
         .logo span {
             font-size: 0.7rem;
-            color: var(--text-secondary);
+            color: var(--accent-gold);
+            letter-spacing: 2px;
         }
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
         .nav-links a {
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-primary);
             padding: 0.4rem 0;
+            transition: 0.2s;
         }
         .nav-links a.active {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
         }
         .theme-toggle {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 60px;
+            border: 1px solid var(--accent-gold);
+            border-radius: 50px;
             padding: 0.4rem 1rem;
             cursor: pointer;
-            font-weight: 500;
+            font-size: 0.9rem;
             display: flex;
             gap: 8px;
+            color: var(--accent-gold);
         }
 
         .container {
@@ -122,29 +132,43 @@
         }
         .page {
             display: none;
-            animation: fadeIn 0.3s ease;
+            animation: fadeInUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
         .active-page {
             display: block;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px);}
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px);}
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* Hero Beranda */
+        /* Hero Section */
         .hero {
             background: var(--hero-bg);
             border-radius: 2rem;
-            padding: 2.5rem;
+            padding: 3rem 2rem;
             text-align: center;
             margin-bottom: 2.5rem;
             border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .hero::before {
+            content: "✦";
+            font-size: 12rem;
+            position: absolute;
+            bottom: -40px;
+            right: -30px;
+            opacity: 0.04;
+            font-family: serif;
+            pointer-events: none;
         }
         .hero h2 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent), #e67e22);
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -154,107 +178,136 @@
             align-items: center;
             gap: 12px;
             background: var(--bg-card);
-            padding: 0.5rem 1.8rem;
+            padding: 0.6rem 2rem;
             border-radius: 60px;
             margin: 1rem 0;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--accent-gold);
         }
         .rating i {
-            color: #fbbf24;
+            color: var(--accent-gold);
         }
         .contact-row {
             display: flex;
             justify-content: center;
-            gap: 2rem;
             flex-wrap: wrap;
+            gap: 1rem;
             margin: 2rem 0;
         }
         .contact-card {
             background: var(--bg-card);
-            padding: 1rem 2rem;
-            border-radius: 90px;
+            padding: 0.7rem 1.5rem;
+            border-radius: 60px;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: var(--shadow);
+            gap: 10px;
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        .contact-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         .location-card {
             background: var(--bg-card);
-            padding: 1.2rem;
-            border-radius: 1.5rem;
-            max-width: 400px;
+            padding: 1rem 1.8rem;
+            border-radius: 2rem;
+            max-width: 500px;
             margin: 1.5rem auto;
             display: flex;
             align-items: center;
             gap: 15px;
             justify-content: center;
             border: 1px solid var(--border);
+            transition: 0.2s;
+        }
+        .location-card:hover {
+            border-color: var(--accent-gold);
+        }
+        .location-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
         }
         .btn-pesan {
-            background: var(--accent);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #1e1a16;
             border: none;
             padding: 1rem 2.5rem;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 700;
             border-radius: 60px;
             cursor: pointer;
-            margin: 2rem 0 1rem;
-            box-shadow: 0 4px 12px rgba(184,92,26,0.3);
+            margin: 1.5rem 0 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+        }
+        .btn-pesan:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
         }
 
-        /* Menu Produk */
+        /* Menu Products */
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin: 2rem 0 1.2rem;
-            border-left: 6px solid var(--accent);
-            padding-left: 1rem;
+            font-family: 'Playfair Display', serif;
+            margin: 2.5rem 0 1.5rem;
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 1.2rem;
         }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
         .card {
             background: var(--bg-card);
             border-radius: 1.5rem;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
-            transition: 0.2s;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-lg);
         }
         .card-img {
             width: 100%;
-            height: 180px;
+            height: 210px;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .card-img {
+            transform: scale(1.03);
         }
         .card-body {
-            padding: 1rem 1.2rem 1.2rem;
+            padding: 1.3rem;
         }
         .card h3 {
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
         .price {
-            font-size: 1.4rem;
+            font-size: 1.55rem;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--accent-gold);
             margin: 0.5rem 0;
         }
         .badge-populer {
-            background: #fbbf24;
-            color: #2c2418;
-            font-size: 0.65rem;
-            font-weight: bold;
-            padding: 0.2rem 0.6rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #1e1a16;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.25rem 0.9rem;
             border-radius: 30px;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .qty-select {
             display: flex;
@@ -266,60 +319,119 @@
         .qty-select button {
             background: var(--border);
             border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 40px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
+            transition: 0.15s;
+            color: var(--text-primary);
         }
+        .qty-select button:hover {
+            background: var(--accent-gold);
+            color: #1e1a16;
+        }
+        .btn-add-cart {
+            background: var(--bg-card);
+            border: 1.5px solid var(--accent-gold);
+            color: var(--accent-gold);
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-add-cart:hover {
+            background: var(--accent-gold);
+            color: #1e1a16;
+        }
+
+        /* Cart Bar SUPER PREMIUM */
         .cart-bar {
             background: var(--bg-card);
             border-radius: 2rem;
-            padding: 1rem 1.8rem;
-            margin: 2rem 0 1rem;
+            padding: 1.2rem 2rem;
+            margin: 2.5rem 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
             position: sticky;
-            bottom: 20px;
+            bottom: 25px;
             z-index: 99;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+            border: 1.5px solid var(--accent-gold);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(8px);
+        }
+        .cart-info {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .cart-info i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+        .payment-buttons {
+            display: flex;
+            gap: 15px;
         }
         .btn-bayar {
-            background: var(--accent);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #1e1a16;
             border: none;
-            padding: 0.7rem 1.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 60px;
-            font-weight: 600;
+            font-weight: 800;
             cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+        .btn-bayar:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        .btn-cash {
+            background: linear-gradient(135deg, #2c6e2f, #1e4a20);
+            color: white;
+        }
+
+        /* Modal QRIS */
         .modal {
             display: none;
             position: fixed;
             top:0;left:0;
             width:100%;height:100%;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(6px);
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
             justify-content: center;
             align-items: center;
             z-index: 2000;
         }
         .modal-content {
             background: var(--bg-card);
-            max-width: 460px;
+            max-width: 480px;
             width: 90%;
             border-radius: 2rem;
             padding: 2rem;
             text-align: center;
+            border: 2px solid var(--accent-gold);
+            box-shadow: var(--shadow-lg);
         }
         .modal-content img {
-            max-width: 180px;
-            margin: 0.5rem auto;
+            max-width: 200px;
+            margin: 0.8rem auto;
+            border-radius: 1rem;
+            border: 1px solid var(--accent-gold);
         }
         footer {
             background: var(--footer-bg);
@@ -328,10 +440,13 @@
             padding: 2rem;
             margin-top: 3rem;
             font-size: 0.8rem;
+            border-top: 1px solid var(--accent-gold);
         }
         @media (max-width: 700px) {
-            .nav-container { flex-direction: column; }
+            .nav-container { flex-direction: column; text-align: center; }
+            .hero h2 { font-size: 2rem; }
             .cart-bar { flex-direction: column; text-align: center; }
+            .payment-buttons { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -341,73 +456,74 @@
     <div class="nav-container">
         <div class="logo">
             <h1>RESTAURANT DYNAN</h1>
-            <span>✦ Fine Dining • Viral ✦</span>
+            <span>✦ ULTRA PREMIUM FINE DINING ✦</span>
         </div>
         <div class="nav-links">
             <a href="#" data-page="beranda" class="nav-link active">BERANDA</a>
             <a href="#" data-page="pesan" class="nav-link">PESAN</a>
             <div class="theme-toggle" id="themeToggle">
-                <i class="fas fa-sun"></i> <span>|</span> <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i> <span style="margin:0 4px;">|</span> <i class="fas fa-moon"></i>
             </div>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <!-- HALAMAN BERANDA -->
+    <!-- BERANDA -->
     <div id="beranda-page" class="page active-page">
         <div class="hero">
             <h2>✨ SELAMAT DATANG ✨</h2>
-            <p style="font-size:1.1rem; margin:0.5rem 0;">Restaurant DYNAN — tempatnya cita rasa Nusantara & Internasional</p>
+            <p style="font-size:1.1rem; margin:0.5rem 0;">Fine Dining Nusantara & Internasional</p>
             <div class="rating">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <span>5.0 (2.345+ ulasan) | ★ Restoran Terbaik 2024-2025</span>
+                <span>5.0 ★ Restoran Terbaik 2024-2025</span>
             </div>
         </div>
         <div class="contact-row">
-            <div class="contact-card"><i class="fab fa-whatsapp fa-2x" style="color:#25D366;"></i> <span>+6283180072584</span></div>
-            <div class="contact-card"><i class="fab fa-instagram fa-2x" style="color:#E4405F;"></i> <span>@nannhtgl</span></div>
+            <div class="contact-card"><i class="fab fa-whatsapp fa-lg" style="color:#25D366;"></i> <span>+6283180072584</span></div>
+            <div class="contact-card"><i class="fab fa-instagram fa-lg" style="color:#E4405F;"></i> <span>@nannhtgl</span></div>
+            <div class="contact-card"><i class="fab fa-tiktok fa-lg"></i> <span>@dyynotdev</span></div>
+            <div class="contact-card"><i class="fab fa-telegram fa-lg" style="color:#26A5E4;"></i> <span>@dynanniwe</span></div>
         </div>
         <div class="location-card">
-            <i class="fas fa-location-dot fa-xl" style="color:var(--accent);"></i>
-            <span>📍 JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut</span>
+            <i class="fas fa-location-dot fa-lg" style="color:var(--accent-gold);"></i>
+            <a href="https://maps.app.goo.gl/koArFgGmokUeWd5z5?g_st=ac" target="_blank">📍 JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut</a>
         </div>
         <div style="text-align: center;">
-            <button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAHKAN PESAN</button>
+            <button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAKAN PESAN</button>
         </div>
-        <p style="text-align:center; margin-top:2rem; font-style:italic;">"Rasakan sensasi kuliner viral dengan pelayanan bintang 5" — Chef DYNAN</p>
+        <p style="text-align:center; margin-top:2rem; font-style:italic; color:var(--accent-gold); font-weight:500;">"Rasakan kemewahan cita rasa, hanya di RESTAURANT DYNAN"</p>
     </div>
 
     <!-- HALAMAN PESAN -->
     <div id="pesan-page" class="page">
         <div class="section-title"><i class="fas fa-egg"></i> MAKANAN SIGNATURE</div>
         <div class="product-grid" id="makananGrid"></div>
-        
-        <div class="section-title"><i class="fas fa-mug-hot"></i> MINUMAN SEGAR</div>
+        <div class="section-title"><i class="fas fa-mug-hot"></i> MINUMAN PREMIUM</div>
         <div class="product-grid" id="minumanGrid"></div>
 
-        <!-- Cart & Bayar -->
         <div class="cart-bar">
-            <div><i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span></div>
-            <div style="display: flex; gap: 12px;">
+            <div class="cart-info">
+                <i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span>
+            </div>
+            <div class="payment-buttons">
                 <button class="btn-bayar" id="bayarQRISBtn"><i class="fas fa-qrcode"></i> QRIS</button>
-                <button class="btn-bayar" id="bayarCashBtn" style="background: #2c6e2f;"><i class="fas fa-money-bill"></i> Bayar di Tempat</button>
+                <button class="btn-bayar btn-cash" id="bayarCashBtn"><i class="fas fa-money-bill"></i> Bayar di Tempat</button>
             </div>
         </div>
     </div>
 </div>
 
-<footer>© 2025 RESTAURANT DYNAN | Premium Taste, Viral Sensation</footer>
+<footer>© 2025 RESTAURANT DYNAN | Ultra Premium Fine Dining • Viral Sensation • Bintang 5</footer>
 
-<!-- Modal QRIS -->
 <div id="modalQRIS" class="modal">
     <div class="modal-content">
         <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closeModalQR">&times;</span>
-        <h3><i class="fas fa-qrcode"></i> Scan QRIS</h3>
+        <h3><i class="fas fa-qrcode"></i> SCAN QRIS</h3>
         <div id="orderSummaryQR"></div>
-        <img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" alt="QRIS" style="width:180px;">
-        <p style="margin-top:10px;">Setelah scan & bayar, tekan tombol kirim bukti</p>
-        <button class="btn-bayar" id="confirmQRIS" style="background:var(--accent);">✅ Kirim Bukti ke WA</button>
+        <img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" alt="QRIS">
+        <p style="margin:10px 0;">Setelah bayar, tekan tombol kirim bukti</p>
+        <button class="btn-bayar" id="confirmQRIS" style="width:100%;">✅ Kirim Bukti ke WA</button>
     </div>
 </div>
 
@@ -426,10 +542,11 @@
         { id:"tehpucuk", name:"Teh Pucuk", price:6000, img:"https://cdn.phototourl.com/free/2026-05-20-de2cdcdf-8692-4ef2-a052-40266270f5ab.jpg", best:false },
         { id:"sosro", name:"Teh Botol Sosro", price:7000, img:"https://cdn.phototourl.com/free/2026-05-20-9cf11c10-ec82-4071-9cef-6c541ad2d301.jpg", best:true }
     ];
+
     let cart = [];
 
-    function renderMakanan() {
-        let html = makanan.map(item => `
+    function renderCards(items, targetId) {
+        let html = items.map(item => `
             <div class="card">
                 <img class="card-img" src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300?text=Food'">
                 <div class="card-body">
@@ -438,34 +555,14 @@
                     <div class="price">Rp ${item.price.toLocaleString()}</div>
                     <div class="qty-select">
                         <button class="dec" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">-</button>
-                        <span id="qty-${item.id}">0</span>
+                        <span id="qty-${item.id}" style="font-weight:600; min-width:30px;">0</span>
                         <button class="inc" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">+</button>
                     </div>
-                    <button class="btn-bayar add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" style="width:100%;">+ Keranjang</button>
+                    <button class="btn-add-cart add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}"><i class="fas fa-cart-plus"></i> Tambah ke Keranjang</button>
                 </div>
             </div>
         `).join('');
-        document.getElementById('makananGrid').innerHTML = html;
-    }
-    function renderMinuman() {
-        let html = minuman.map(item => `
-            <div class="card">
-                <img class="card-img" src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300?text=Drink'">
-                <div class="card-body">
-                    ${item.best ? '<div class="badge-populer">⭐ BEST SELLER</div>' : ''}
-                    <h3>${item.name}</h3>
-                    <div class="price">Rp ${item.price.toLocaleString()}</div>
-                    <div class="qty-select">
-                        <button class="dec" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">-</button>
-                        <span id="qty-${item.id}">0</span>
-                        <button class="inc" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">+</button>
-                    </div>
-                    <button class="btn-bayar add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" style="width:100%;">+ Keranjang</button>
-                </div>
-            </div>
-        `).join('');
-        document.getElementById('minumanGrid').innerHTML = html;
-        attachEvents();
+        document.getElementById(targetId).innerHTML = html;
     }
 
     function attachEvents() {
@@ -476,8 +573,7 @@
     function incHandler(e) {
         let id = e.currentTarget.dataset.id, name = e.currentTarget.dataset.name, price = parseInt(e.currentTarget.dataset.price);
         let ex = cart.find(i=>i.id===id);
-        if(ex) ex.quantity++;
-        else cart.push({id,name,price,quantity:1});
+        ex ? ex.quantity++ : cart.push({id,name,price,quantity:1});
         updateQtyDisplay(id);
         updateCartSummary();
     }
@@ -494,11 +590,10 @@
     function addToCartHandler(e) {
         let id = e.currentTarget.dataset.id, name = e.currentTarget.dataset.name, price = parseInt(e.currentTarget.dataset.price);
         let ex = cart.find(i=>i.id===id);
-        if(ex) ex.quantity++;
-        else cart.push({id,name,price,quantity:1});
+        ex ? ex.quantity++ : cart.push({id,name,price,quantity:1});
         updateQtyDisplay(id);
         updateCartSummary();
-        alert(`✅ ${name} ditambahkan`);
+        alert(`✅ ${name} ditambahkan ke keranjang`);
     }
     function updateQtyDisplay(id) {
         let span = document.getElementById(`qty-${id}`);
@@ -513,24 +608,20 @@
         document.getElementById('totalItemsCount').innerText = totalItems;
         document.getElementById('totalPricePreview').innerText = totalPrice.toLocaleString();
     }
-
     function refreshAllQty() {
         [...makanan, ...minuman].forEach(p => updateQtyDisplay(p.id));
     }
 
-    // Modal & Payment
+    // Modal dan Payment
     const modalQR = document.getElementById('modalQRIS');
-    let currentTotal = 0;
-    let currentDetail = "";
+    let currentTotal = 0, currentDetail = "";
 
     function openQRIS() {
-        if(cart.length===0) { alert("Keranjang kosong, pilih menu dulu."); return; }
+        if(cart.length===0) { alert("Keranjang masih kosong, pilih menu dulu."); return; }
         let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
         let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
-        currentTotal = total;
-        currentDetail = detail;
-        let orderHtml = `<p><strong>Pesanan:</strong> ${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p>`;
-        document.getElementById('orderSummaryQR').innerHTML = orderHtml;
+        currentTotal = total; currentDetail = detail;
+        document.getElementById('orderSummaryQR').innerHTML = `<p><strong>Pesanan:</strong><br>${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p>`;
         modalQR.style.display = 'flex';
     }
 
@@ -540,21 +631,21 @@
         let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
         let now = new Date();
         let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-        let msg = `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*%0A%0APesanan: ${detail}%0ATotal: Rp ${total.toLocaleString()}%0AWaktu: ${tanggal}%0A%0A(Metode: Bayar cash saat ambil pesanan di lokasi)`;
+        let msg = `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*%0A%0APesanan: ${detail}%0ATotal: Rp ${total.toLocaleString()}%0AWaktu: ${tanggal}%0A%0AMetode: Bayar cash saat ambil pesanan di lokasi`;
         window.open(`https://wa.me/6283180072584?text=${msg}`, '_blank');
         cart = []; updateCartSummary(); refreshAllQty();
-        alert("Pesanan dikirim ke kasir. Siapkan uang cash saat ambil pesanan.");
+        alert("✅ Pesanan dikirim ke kasir. Siapkan uang cash saat ambil pesanan.");
     }
 
     document.getElementById('confirmQRIS')?.addEventListener('click', ()=>{
         if(cart.length===0) return;
         let now = new Date();
         let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-        let msg = `*ORDER RESTAURANT DYNAN (QRIS)*%0A%0APesanan: ${currentDetail}%0ATotal: Rp ${currentTotal.toLocaleString()}%0ATanggal: ${tanggal}%0A%0ASaya telah membayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`;
+        let msg = `*ORDER RESTAURANT DYNAN (QRIS)*%0A%0APesanan: ${currentDetail}%0ATotal: Rp ${currentTotal.toLocaleString()}%0ATanggal: ${tanggal}%0A%0ASaya sudah bayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`;
         window.open(`https://wa.me/6283180072584?text=${msg}`, '_blank');
         cart = []; updateCartSummary(); refreshAllQty();
         modalQR.style.display = 'none';
-        alert("Bukti transfer segera kirim ke WA admin");
+        alert("✅ Kirim bukti transfer ke WA admin untuk segera diproses.");
     });
     document.getElementById('closeModalQR')?.addEventListener('click', ()=> modalQR.style.display = 'none');
     window.onclick = e => { if(e.target === modalQR) modalQR.style.display = 'none'; };
@@ -571,20 +662,16 @@
             if(page === 'pesan') refreshAllQty();
         });
     });
-    document.getElementById('tombolKePesan')?.addEventListener('click', () => {
-        document.querySelector('[data-page="pesan"]').click();
-    });
+    document.getElementById('tombolKePesan')?.addEventListener('click', () => document.querySelector('[data-page="pesan"]').click());
     document.getElementById('bayarQRISBtn')?.addEventListener('click', openQRIS);
     document.getElementById('bayarCashBtn')?.addEventListener('click', bayarDiTempat);
 
-    // Theme toggler
     const themeToggle = document.getElementById('themeToggle');
-    themeToggle?.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-    });
+    themeToggle?.addEventListener('click', () => document.body.classList.toggle('dark'));
 
-    renderMakanan();
-    renderMinuman();
+    renderCards(makanan, 'makananGrid');
+    renderCards(minuman, 'minumanGrid');
+    attachEvents();
     updateCartSummary();
 </script>
 </body>
