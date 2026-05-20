@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>RESTAURANT DYNAN | The Epitome of Elegance</title>
+    <title>RESTAURANT DYNAN | Best Fine Dining 2025-2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,8 +14,8 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background 0.4s ease, color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.3s ease, color 0.2s;
             overflow-x: hidden;
         }
 
@@ -28,15 +28,12 @@
             --text-secondary: #5c4d3f;
             --accent-gold: #c6a43b;
             --accent-gold-dark: #a07e2a;
-            --accent-gold-light: #f0e0a8;
-            --border: rgba(198, 164, 59, 0.3);
+            --border: rgba(198, 164, 59, 0.25);
             --shadow-sm: 0 8px 30px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 35px 55px -15px rgba(0, 0, 0, 0.15);
             --hero-bg: linear-gradient(120deg, #fffaf0 0%, #fef5e8 100%);
             --footer-bg: #1a1510;
             --footer-text: #c9bbaa;
-            --glow: 0 0 8px rgba(198, 164, 59, 0.4);
         }
 
         body.dark {
@@ -47,12 +44,10 @@
             --text-secondary: #c9beb0;
             --accent-gold: #e0bc5c;
             --accent-gold-dark: #c6a43b;
-            --accent-gold-light: #f5e2a1;
             --border: rgba(224, 188, 92, 0.35);
             --hero-bg: linear-gradient(120deg, #1c1916 0%, #24201c 100%);
             --footer-bg: #080706;
             --footer-text: #8a7b6c;
-            --glow: 0 0 12px rgba(224, 188, 92, 0.5);
         }
 
         body {
@@ -60,21 +55,47 @@
             color: var(--text-primary);
         }
 
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-body);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--border); border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 10px; }
 
-        /* Navbar Elegan */
+        /* Navbar */
         .navbar {
             background: var(--bg-nav);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(18px);
             padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
         }
         .nav-container {
             max-width: 1400px;
@@ -86,19 +107,13 @@
             gap: 1rem;
         }
         .logo h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.3px;
-        }
-        .logo span {
-            font-size: 0.7rem;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
         }
         .nav-links {
             display: flex;
@@ -110,33 +125,26 @@
             font-weight: 500;
             color: var(--text-primary);
             transition: 0.2s;
-            font-size: 0.95rem;
         }
         .nav-links a.active {
             color: var(--accent-gold);
             border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 4px;
         }
         .theme-toggle {
             background: var(--bg-card);
             border: 1px solid var(--accent-gold);
             border-radius: 50px;
-            padding: 0.5rem 1.2rem;
+            padding: 0.4rem 1rem;
             cursor: pointer;
-            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.2s;
-            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
         }
         .theme-toggle:hover {
             transform: scale(1.02);
-            border-color: var(--accent-gold);
-            box-shadow: var(--glow);
         }
 
-        /* Main Container */
         .container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -144,66 +152,72 @@
         }
         .page {
             display: none;
-            animation: fadeSlide 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            animation: fadeUp 0.6s ease;
         }
         .active-page {
             display: block;
         }
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(25px);}
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px);}
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* Hero Section */
+        /* Hero dengan partikel & animasi */
         .hero {
             background: var(--hero-bg);
-            border-radius: 2.5rem;
-            padding: 3.5rem 2rem;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
         }
-        .hero::after {
-            content: "✦";
-            font-size: 15rem;
+        .particle {
             position: absolute;
-            bottom: -70px;
-            right: -50px;
-            opacity: 0.03;
-            font-family: serif;
-            pointer-events: none;
+            background: var(--accent-gold);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: floatParticle 8s infinite linear;
         }
-        .hero h2 {
-            font-family: 'Playfair Display', serif;
+        @keyframes floatParticle {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+        }
+        .animate-title {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            background: linear-gradient(135deg, var(--accent-gold), #fff3c9, var(--accent-gold-dark));
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            display: inline-block;
+            animation: slideShimmer 1.2s ease-out forwards, shimmer 3s infinite 0.5s;
         }
-        .hero p {
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            color: var(--text-secondary);
+        @keyframes slideShimmer {
+            0% { transform: translateX(-120px); opacity: 0; letter-spacing: 12px; }
+            100% { transform: translateX(0); opacity: 1; letter-spacing: normal; }
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .rating {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             background: var(--bg-card);
-            padding: 0.6rem 2rem;
+            padding: 0.5rem 1.8rem;
             border-radius: 60px;
-            margin: 1.2rem 0;
-            box-shadow: var(--shadow-sm);
+            margin: 1rem 0;
             border: 1px solid var(--accent-gold);
             backdrop-filter: blur(4px);
-        }
-        .rating i {
-            color: var(--accent-gold);
         }
         .contact-grid {
             display: flex;
@@ -214,57 +228,44 @@
         }
         .contact-card {
             background: var(--bg-card);
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 60px;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: var(--shadow-sm);
+            gap: 10px;
             border: 1px solid var(--border);
-            transition: all 0.25s ease;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
+            transition: 0.25s;
         }
         .contact-card:hover {
             border-color: var(--accent-gold);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
         }
         .location-card {
             background: var(--bg-card);
             padding: 1rem 1.8rem;
             border-radius: 2rem;
-            max-width: 550px;
+            max-width: 500px;
             margin: 1.5rem auto;
             display: flex;
             align-items: center;
             gap: 15px;
             justify-content: center;
             border: 1px solid var(--border);
-            transition: 0.2s;
-            backdrop-filter: blur(4px);
         }
         .location-card a {
             color: var(--accent-gold);
             text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .location-card a:hover {
-            text-decoration: underline;
         }
         .btn-pesan {
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
             color: #1a1510;
             border: none;
             padding: 1rem 2.5rem;
-            font-size: 1.1rem;
             font-weight: 700;
             border-radius: 60px;
             cursor: pointer;
-            margin: 1.5rem 0 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(198, 164, 59, 0.35);
+            margin: 1.5rem 0;
+            transition: 0.3s;
             position: relative;
             overflow: hidden;
         }
@@ -275,7 +276,7 @@
             left: -60%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 80%);
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
             opacity: 0;
             transition: opacity 0.4s;
         }
@@ -284,73 +285,76 @@
         }
         .btn-pesan:hover {
             transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(198, 164, 59, 0.5);
+            box-shadow: 0 0 20px var(--accent-gold);
         }
 
-        /* Menu Sections */
+        /* Jam Operasional */
+        .jam-operasional {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 400px;
+            border: 1px solid var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Menu */
         .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            margin: 2.5rem 0 1.5rem;
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            margin: 2rem 0 1.5rem;
             border-left: 5px solid var(--accent-gold);
-            padding-left: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            padding-left: 1rem;
         }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
         .card {
             background: var(--bg-card);
-            border-radius: 1.8rem;
+            border-radius: 1.5rem;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
-            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            backdrop-filter: blur(4px);
+            transition: 0.3s;
         }
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--accent-gold);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
         .card-img {
             width: 100%;
-            height: 260px;
+            height: 240px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s;
         }
         .card:hover .card-img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         .card-body {
-            padding: 1.3rem;
+            padding: 1.2rem;
         }
         .card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-family: 'Cormorant Garamond', serif;
         }
         .price {
-            font-size: 1.6rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--accent-gold);
             margin: 0.5rem 0;
         }
         .badge-populer {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            background: var(--accent-gold);
             color: #1a1510;
             font-size: 0.7rem;
-            font-weight: 800;
-            padding: 0.25rem 0.9rem;
+            font-weight: bold;
+            padding: 0.2rem 0.8rem;
             border-radius: 30px;
             display: inline-block;
-            margin-bottom: 10px;
-            box-shadow: var(--glow);
+            margin-bottom: 8px;
         }
         .qty-select {
             display: flex;
@@ -362,141 +366,110 @@
         .qty-select button {
             background: var(--border);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             font-weight: bold;
-            font-size: 1.3rem;
             cursor: pointer;
             transition: 0.15s;
-            color: var(--text-primary);
         }
         .qty-select button:hover {
             background: var(--accent-gold);
             color: #1a1510;
-            transform: scale(1.05);
         }
         .btn-add-cart {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
             color: var(--accent-gold);
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.7rem;
             border-radius: 60px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            transition: 0.2s;
         }
         .btn-add-cart:hover {
             background: var(--accent-gold);
             color: #1a1510;
-            transform: translateY(-2px);
-            box-shadow: var(--glow);
         }
-
-        /* Cart Bar */
         .cart-bar {
             background: var(--bg-card);
-            border-radius: 2rem;
-            padding: 1.2rem 2rem;
-            margin: 2.5rem 0 1.5rem;
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            position: sticky;
-            bottom: 25px;
-            z-index: 99;
-            border: 1.5px solid var(--accent-gold);
-            box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(12px);
-        }
-        .cart-info {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        .cart-info i {
-            color: var(--accent-gold);
-            margin-right: 8px;
+            border: 1px solid var(--accent-gold);
         }
         .payment-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         .btn-bayar {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            background: var(--accent-gold);
             color: #1a1510;
             border: none;
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 60px;
-            font-weight: 800;
+            font-weight: 700;
             cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
         }
         .btn-bayar:hover {
             transform: scale(1.02);
-            box-shadow: var(--glow);
         }
         .btn-cash {
-            background: linear-gradient(135deg, #2c6e2f, #1e4a20);
+            background: #2c6e2f;
             color: white;
         }
-
-        /* Modal Super Elegan */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(12px);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
             z-index: 2000;
         }
         .modal-content {
             background: var(--bg-card);
-            max-width: 520px;
+            max-width: 480px;
             width: 90%;
-            border-radius: 2.5rem;
+            border-radius: 1.5rem;
             padding: 2rem;
             text-align: center;
             border: 1px solid var(--accent-gold);
-            box-shadow: var(--shadow-lg);
-            animation: modalPop 0.3s ease;
+            animation: modalPop 0.3s;
         }
         @keyframes modalPop {
             from { transform: scale(0.95); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-        .modal-content select, .modal-content button {
-            margin-top: 1rem;
-            padding: 0.9rem;
-            border-radius: 60px;
-            font-weight: 600;
+        .modal-content select, .modal-content textarea {
             width: 100%;
+            padding: 0.7rem;
+            margin-top: 1rem;
+            border-radius: 60px;
             background: var(--bg-card);
             border: 1px solid var(--accent-gold);
             color: var(--text-primary);
-            font-size: 0.95rem;
         }
-        .modal-content img {
-            max-width: 180px;
-            margin: 1rem auto;
+        .modal-content textarea {
             border-radius: 1rem;
-            border: 1px solid var(--accent-gold);
+            resize: vertical;
         }
         footer {
             background: var(--footer-bg);
@@ -504,314 +477,287 @@
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            font-size: 0.8rem;
-            border-top: 1px solid var(--accent-gold);
         }
-
+        /* Back to top */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-gold);
+            color: #1a1510;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+        #backToTop.show {
+            opacity: 1;
+        }
         @media (max-width: 700px) {
-            .nav-container { flex-direction: column; text-align: center; }
-            .hero h2 { font-size: 2rem; }
-            .cart-bar { flex-direction: column; text-align: center; }
-            .payment-buttons { width: 100%; justify-content: center; }
-            .card-img { height: 220px; }
-            .section-title { font-size: 1.5rem; }
+            .nav-container { flex-direction: column; }
+            .cart-bar { flex-direction: column; }
+            .animate-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
+<div id="preloader"><div class="loader"></div></div>
+
 <div class="navbar">
     <div class="nav-container">
-        <div class="logo">
-            <h1>RESTAURANT DYNAN</h1>
-            <span>✦ ULTRA PREMIUM FINE DINING ✦</span>
-        </div>
+        <div class="logo"><h1>RESTAURANT DYNAN</h1></div>
         <div class="nav-links">
             <a href="#" data-page="beranda" class="nav-link active">BERANDA</a>
-            <div class="theme-toggle" id="themeToggle">
-                <i class="fas fa-sun" id="themeIcon"></i>
-                <span id="themeText">Terang</span>
-            </div>
+            <div class="theme-toggle" id="themeToggle"><i class="fas fa-sun" id="themeIcon"></i> <span id="themeText">Terang</span></div>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <!-- BERANDA -->
     <div id="beranda-page" class="page active-page">
-        <div class="hero">
-            <h2>✨ SELAMAT DATANG ✨</h2>
-            <p style="font-size:1.1rem;">Fine Dining Nusantara & Internasional</p>
-            <div class="rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <span>5.0 ★ Restoran Terbaik 2024-2025</span>
+        <div class="hero" id="heroSection">
+            <div class="animate-title">✨ SELAMAT DATANG ✨</div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 ★ Restoran Terbaik 2025-2026</span></div>
+            <div class="jam-operasional">
+                <i class="far fa-clock"></i> Buka Setiap Hari | 10:00 - 22:00
             </div>
         </div>
         <div class="contact-grid">
-            <div class="contact-card"><i class="fab fa-whatsapp fa-lg" style="color:#25D366;"></i> +6283180072584</div>
-            <div class="contact-card"><i class="fab fa-instagram fa-lg" style="color:#E4405F;"></i> @nannhtgl</div>
-            <div class="contact-card"><i class="fab fa-tiktok fa-lg"></i> @dyynotdev</div>
-            <div class="contact-card"><i class="fab fa-telegram fa-lg" style="color:#26A5E4;"></i> @dynanniwe</div>
+            <div class="contact-card"><i class="fab fa-whatsapp"></i> +6283180072584</div>
+            <div class="contact-card"><i class="fab fa-instagram"></i> @nannhtgl</div>
+            <div class="contact-card"><i class="fab fa-tiktok"></i> @dyynotdev</div>
+            <div class="contact-card"><i class="fab fa-telegram"></i> @dynanniwe</div>
         </div>
         <div class="location-card">
-            <i class="fas fa-location-dot fa-lg" style="color:var(--accent-gold);"></i>
-            <a href="https://maps.app.goo.gl/koArFgGmokUeWd5z5?g_st=ac" target="_blank">📍 JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut</a>
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="https://maps.app.goo.gl/koArFgGmokUeWd5z5" target="_blank">JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut</a>
         </div>
-        <div style="text-align: center;">
-            <button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAKAN PESAN</button>
+        <div style="text-align:center"><button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAKAN PESAN</button></div>
+        <!-- Testimonial sederhana -->
+        <div style="text-align:center; margin-top:2rem; font-style:italic; color:var(--accent-gold);">
+            <i class="fas fa-quote-left"></i> Makanannya enak banget, tempatnya mewah! <i class="fas fa-quote-right"></i> — Chef Renatta
         </div>
-        <p style="text-align:center; margin-top:2rem; font-style:italic; color:var(--accent-gold); font-weight:500;">"Rasakan kemewahan cita rasa, hanya di RESTAURANT DYNAN"</p>
     </div>
 
-    <!-- HALAMAN PESAN (hidden, muncul saat klik tombol) -->
     <div id="pesan-page" class="page">
-        <div class="section-title"><i class="fas fa-egg"></i> MAKANAN SIGNATURE</div>
+        <div class="section-title">🍽️ MAKANAN SIGNATURE</div>
         <div class="product-grid" id="makananGrid"></div>
-        <div class="section-title"><i class="fas fa-mug-hot"></i> MINUMAN PREMIUM</div>
+        <div class="section-title">🥤 MINUMAN PREMIUM</div>
         <div class="product-grid" id="minumanGrid"></div>
-
         <div class="cart-bar">
-            <div class="cart-info">
-                <i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span>
-            </div>
+            <span><i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span></span>
             <div class="payment-buttons">
                 <button class="btn-bayar" id="bayarQRISBtn"><i class="fas fa-qrcode"></i> QRIS</button>
-                <button class="btn-bayar btn-cash" id="bayarCashBtn"><i class="fas fa-money-bill"></i> Bayar di Tempat</button>
+                <button class="btn-bayar btn-cash" id="bayarCashBtn"><i class="fas fa-money-bill"></i> Cash</button>
             </div>
         </div>
     </div>
 </div>
 
-<footer>© 2025 RESTAURANT DYNAN | The Epitome of Elegance</footer>
+<footer>© 2025-2026 RESTAURANT DYNAN | Best Fine Dining Award | Presented by DYNAN GROUP</footer>
+
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <!-- Modal Pilihan Makan -->
 <div id="diningModal" class="modal">
     <div class="modal-content">
-        <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closeDiningModal">&times;</span>
-        <h3><i class="fas fa-utensils"></i> Opsi Pemesanan</h3>
+        <span style="float:right; font-size:1.8rem; cursor:pointer;" id="closeDiningModal">&times;</span>
+        <h3>📋 Opsi Pemesanan</h3>
         <div id="diningOrderSummary"></div>
         <select id="diningOptionSelect">
             <option value="takeaway">🍱 Bawa Pulang (Take Away)</option>
             <option value="dinein">🍽️ Makan di Sini</option>
         </select>
-        <div id="bangkuWrapper" style="display: none;">
+        <div id="bangkuWrapper" style="display:none; margin-top:1rem;">
             <select id="bangkuSelect">
-                <option value="">Pilih Nomor Bangku</option>
-                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                <option value="">Pilih Bangku</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
             </select>
         </div>
-        <button id="confirmDiningBtn" class="btn-bayar" style="margin-top:1rem;">✅ Lanjutkan ke Pembayaran</button>
+        <textarea id="catatanPesanan" rows="2" placeholder="Catatan tambahan (opsional)..."></textarea>
+        <button id="confirmDiningBtn" class="btn-bayar" style="margin-top:1.5rem;">✅ Lanjutkan</button>
     </div>
 </div>
 
-<!-- Modal Eksekusi Pembayaran -->
 <div id="paymentModal" class="modal">
     <div class="modal-content">
-        <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closePaymentModal">&times;</span>
+        <span style="float:right; font-size:1.8rem; cursor:pointer;" id="closePaymentModal">&times;</span>
         <h3 id="paymentModalTitle"></h3>
         <div id="paymentSummary"></div>
-        <div id="qrisImageWrapper" style="display: none;">
-            <img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" alt="QRIS">
-            <p style="margin:10px 0;">Scan QRIS, lalu tekan tombol kirim bukti</p>
-        </div>
-        <button id="sendWABtn" class="btn-bayar" style="width:100%;">📤 Kirim ke WhatsApp</button>
+        <div id="qrisImageArea" style="display:none;"><img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" style="max-width:160px; margin:1rem auto;"></div>
+        <button id="sendWABtn" class="btn-bayar" style="margin-top:1rem;">📤 Kirim ke WhatsApp</button>
     </div>
 </div>
 
 <script>
     // Data Menu
     const makanan = [
-        { id:"nasgor", name:"Nasi Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-91cac7b8-c84a-45d1-b61f-02e549996f86.jpg", best:true },
-        { id:"ifumie", name:"Ifumie Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-c49c62f3-2524-466f-815f-c9373d3c019b.jpg", best:false },
-        { id:"capcai", name:"Capcai", price:20000, img:"https://cdn.phototourl.com/free/2026-05-20-a37e92f3-76fe-4dfa-80a7-1245e95d3921.jpg", best:true },
-        { id:"mihungoreng", name:"Mi Hun Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-a03a1039-9e9a-406b-be10-73d57d19792f.jpg", best:false },
-        { id:"mihunkuah", name:"Mi Hun Kuah", price:18000, img:"https://cdn.phototourl.com/free/2026-05-20-8bcd687a-b7e7-4590-b5e6-ded5da374442.jpg", best:false }
+        { id:"n1", name:"Nasi Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-91cac7b8-c84a-45d1-b61f-02e549996f86.jpg", best:true },
+        { id:"n2", name:"Ifumie Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-c49c62f3-2524-466f-815f-c9373d3c019b.jpg", best:false },
+        { id:"n3", name:"Capcai", price:20000, img:"https://cdn.phototourl.com/free/2026-05-20-a37e92f3-76fe-4dfa-80a7-1245e95d3921.jpg", best:true },
+        { id:"n4", name:"Mi Hun Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-a03a1039-9e9a-406b-be10-73d57d19792f.jpg", best:false },
+        { id:"n5", name:"Mi Hun Kuah", price:18000, img:"https://cdn.phototourl.com/free/2026-05-20-8bcd687a-b7e7-4590-b5e6-ded5da374442.jpg", best:false }
     ];
     const minuman = [
-        { id:"teh", name:"Teh Manis Dingin", price:5000, img:"https://cdn.phototourl.com/free/2026-05-20-b91e3b67-dc0f-4383-b0d7-18cf28ff7440.jpg", best:false },
-        { id:"cola", name:"Coca Cola", price:8000, img:"https://cdn.phototourl.com/free/2026-05-20-2e613721-c153-4702-8a85-9243be5f0b78.jpg", best:false },
-        { id:"tehpucuk", name:"Teh Pucuk", price:6000, img:"https://cdn.phototourl.com/free/2026-05-20-de2cdcdf-8692-4ef2-a052-40266270f5ab.jpg", best:false },
-        { id:"sosro", name:"Teh Botol Sosro", price:7000, img:"https://cdn.phototourl.com/free/2026-05-20-9cf11c10-ec82-4071-9cef-6c541ad2d301.jpg", best:true }
+        { id:"m1", name:"Teh Manis Dingin", price:5000, img:"https://cdn.phototourl.com/free/2026-05-20-b91e3b67-dc0f-4383-b0d7-18cf28ff7440.jpg", best:false },
+        { id:"m2", name:"Coca Cola", price:8000, img:"https://cdn.phototourl.com/free/2026-05-20-2e613721-c153-4702-8a85-9243be5f0b78.jpg", best:false },
+        { id:"m3", name:"Teh Pucuk", price:6000, img:"https://cdn.phototourl.com/free/2026-05-20-de2cdcdf-8692-4ef2-a052-40266270f5ab.jpg", best:false },
+        { id:"m4", name:"Teh Botol Sosro", price:7000, img:"https://cdn.phototourl.com/free/2026-05-20-9cf11c10-ec82-4071-9cef-6c541ad2d301.jpg", best:true }
     ];
-
     let cart = [];
     let selectedPayment = null;
-    let diningData = { type: '', bangku: '' };
+    let diningChoice = { type: '', bangku: '', catatan: '' };
 
-    function renderCards(items, targetId) {
+    function renderGrid(items, target) {
         let html = items.map(item => `
             <div class="card">
-                <img class="card-img" src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/600x400?text=Food'">
+                <img class="card-img" src="${item.img}" onerror="this.src='https://placehold.co/400x300'">
                 <div class="card-body">
                     ${item.best ? '<div class="badge-populer">⭐ BEST SELLER</div>' : ''}
                     <h3>${item.name}</h3>
                     <div class="price">Rp ${item.price.toLocaleString()}</div>
                     <div class="qty-select">
                         <button class="dec" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">-</button>
-                        <span id="qty-${item.id}" style="font-weight:600; min-width:30px;">0</span>
+                        <span id="qty-${item.id}">0</span>
                         <button class="inc" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">+</button>
                     </div>
-                    <button class="btn-add-cart add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}"><i class="fas fa-cart-plus"></i> Tambah ke Keranjang</button>
+                    <button class="btn-add-cart add-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}"><i class="fas fa-cart-plus"></i> Tambah</button>
                 </div>
             </div>
         `).join('');
-        document.getElementById(targetId).innerHTML = html;
+        document.getElementById(target).innerHTML = html;
     }
 
     function attachEvents() {
-        document.querySelectorAll('.inc').forEach(btn => btn.addEventListener('click', incHandler));
-        document.querySelectorAll('.dec').forEach(btn => btn.addEventListener('click', decHandler));
-        document.querySelectorAll('.add-to-cart').forEach(btn => btn.addEventListener('click', addToCartHandler));
+        document.querySelectorAll('.inc').forEach(btn => btn.addEventListener('click', inc));
+        document.querySelectorAll('.dec').forEach(btn => btn.addEventListener('click', dec));
+        document.querySelectorAll('.add-cart').forEach(btn => btn.addEventListener('click', addCart));
     }
+    function inc(e) { let id=e.target.dataset.id, name=e.target.dataset.name, price=parseInt(e.target.dataset.price); let ex=cart.find(i=>i.id===id); ex? ex.quantity++ : cart.push({id,name,price,quantity:1}); updateQty(id); updateSum(); }
+    function dec(e) { let id=e.target.dataset.id; let idx=cart.findIndex(i=>i.id===id); if(idx!==-1) { if(cart[idx].quantity>1) cart[idx].quantity--; else cart.splice(idx,1); } updateQty(id); updateSum(); }
+    function addCart(e) { let id=e.target.dataset.id, name=e.target.dataset.name, price=parseInt(e.target.dataset.price); let ex=cart.find(i=>i.id===id); ex? ex.quantity++ : cart.push({id,name,price,quantity:1}); updateQty(id); updateSum(); alert(`✅ ${name} ditambahkan`); }
+    function updateQty(id) { let span=document.getElementById(`qty-${id}`); if(span) { let item=cart.find(i=>i.id===id); span.innerText=item?item.quantity:0; } }
+    function updateSum() { let totalItems=cart.reduce((s,i)=>s+i.quantity,0); let totalPrice=cart.reduce((s,i)=>s+(i.price*i.quantity),0); document.getElementById('totalItemsCount').innerText=totalItems; document.getElementById('totalPricePreview').innerText=totalPrice.toLocaleString(); }
+    function refreshAll() { [...makanan,...minuman].forEach(p=>updateQty(p.id)); }
 
-    function incHandler(e) {
-        let id = e.currentTarget.dataset.id, name = e.currentTarget.dataset.name, price = parseInt(e.currentTarget.dataset.price);
-        let ex = cart.find(i=>i.id===id);
-        ex ? ex.quantity++ : cart.push({id,name,price,quantity:1});
-        updateQtyDisplay(id);
-        updateCartSummary();
-    }
-    function decHandler(e) {
-        let id = e.currentTarget.dataset.id;
-        let idx = cart.findIndex(i=>i.id===id);
-        if(idx !== -1) {
-            if(cart[idx].quantity>1) cart[idx].quantity--;
-            else cart.splice(idx,1);
-        }
-        updateQtyDisplay(id);
-        updateCartSummary();
-    }
-    function addToCartHandler(e) {
-        let id = e.currentTarget.dataset.id, name = e.currentTarget.dataset.name, price = parseInt(e.currentTarget.dataset.price);
-        let ex = cart.find(i=>i.id===id);
-        ex ? ex.quantity++ : cart.push({id,name,price,quantity:1});
-        updateQtyDisplay(id);
-        updateCartSummary();
-        alert(`✅ ${name} ditambahkan ke keranjang`);
-    }
-    function updateQtyDisplay(id) {
-        let span = document.getElementById(`qty-${id}`);
-        if(span) {
-            let item = cart.find(i=>i.id===id);
-            span.innerText = item ? item.quantity : 0;
+    // Partikel emas
+    function createParticles() {
+        const hero = document.getElementById('heroSection');
+        if(!hero) return;
+        for(let i=0;i<30;i++) {
+            let particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particle.style.animationDuration = 5 + Math.random() * 5 + 's';
+            hero.appendChild(particle);
         }
     }
-    function updateCartSummary() {
-        let totalItems = cart.reduce((s,i)=>s+i.quantity,0);
-        let totalPrice = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
-        document.getElementById('totalItemsCount').innerText = totalItems;
-        document.getElementById('totalPricePreview').innerText = totalPrice.toLocaleString();
-    }
-    function refreshAllQty() {
-        [...makanan, ...minuman].forEach(p => updateQtyDisplay(p.id));
-    }
+    createParticles();
 
-    // Modal Logic
+    // Preloader
+    window.addEventListener('load', () => {
+        document.getElementById('preloader').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('preloader').style.display = 'none';
+        }, 500);
+    });
+
+    // Back to top
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 300) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
+    });
+    backBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
     const diningModal = document.getElementById('diningModal');
     const paymentModal = document.getElementById('paymentModal');
 
-    function showDiningModal(paymentType) {
-        if(cart.length===0) { alert("Keranjang kosong."); return; }
+    function openDining(paymentType) {
+        if(cart.length===0) { alert("Keranjang kosong!"); return; }
         selectedPayment = paymentType;
         let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
         let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
-        document.getElementById('diningOrderSummary').innerHTML = `<p><strong>${detail}</strong></p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p>`;
+        document.getElementById('diningOrderSummary').innerHTML = `<p><strong>${detail}</strong></p><p>Total: Rp ${total.toLocaleString()}</p>`;
         diningModal.style.display = 'flex';
     }
-
     document.getElementById('diningOptionSelect').addEventListener('change', function() {
-        let wrapper = document.getElementById('bangkuWrapper');
-        wrapper.style.display = this.value === 'dinein' ? 'block' : 'none';
+        document.getElementById('bangkuWrapper').style.display = this.value === 'dinein' ? 'block' : 'none';
     });
-
     document.getElementById('confirmDiningBtn').addEventListener('click', () => {
         let option = document.getElementById('diningOptionSelect').value;
         let bangku = document.getElementById('bangkuSelect').value;
-        if(option === 'dinein' && !bangku) { alert("Pilih nomor bangku terlebih dahulu."); return; }
-        diningData.type = option;
-        diningData.bangku = bangku;
+        let catatan = document.getElementById('catatanPesanan').value;
+        if(option === 'dinein' && !bangku) { alert("Pilih bangku!"); return; }
+        diningChoice.type = option;
+        diningChoice.bangku = bangku;
+        diningChoice.catatan = catatan;
         diningModal.style.display = 'none';
-
         let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
         let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
-        let lokasiText = diningData.type === 'dinein' ? `Makan di tempat - Bangku ${diningData.bangku}` : 'Bawa pulang (Take Away)';
-        document.getElementById('paymentModalTitle').innerHTML = selectedPayment === 'qris' ? '<i class="fas fa-qrcode"></i> QRIS' : '<i class="fas fa-money-bill"></i> Bayar di Tempat';
-        document.getElementById('paymentSummary').innerHTML = `<p>${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p><p>📍 ${lokasiText}</p>`;
-        document.getElementById('qrisImageWrapper').style.display = selectedPayment === 'qris' ? 'block' : 'none';
+        let lokasi = diningChoice.type === 'dinein' ? `Makan di tempat - Bangku ${diningChoice.bangku}` : 'Bawa pulang (Take Away)';
+        document.getElementById('paymentModalTitle').innerHTML = selectedPayment === 'qris' ? '💳 QRIS' : '💵 Bayar di Tempat';
+        document.getElementById('paymentSummary').innerHTML = `<p>${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p><p>📍 ${lokasi}</p>${catatan ? `<p><i class="fas fa-pen"></i> Catatan: ${catatan}</p>` : ''}`;
+        document.getElementById('qrisImageArea').style.display = selectedPayment === 'qris' ? 'block' : 'none';
         paymentModal.style.display = 'flex';
     });
-
     document.getElementById('sendWABtn').addEventListener('click', () => {
         if(cart.length===0) return;
         let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
         let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
         let now = new Date();
         let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-        let lokasiText = diningData.type === 'dinein' ? `Makan di tempat - Bangku ${diningData.bangku}` : 'Bawa pulang (Take Away)';
-        let msg = '';
-        if(selectedPayment === 'qris') {
-            msg = `*ORDER RESTAURANT DYNAN (QRIS)*\n\nPesanan: ${detail}\nTotal: Rp ${total.toLocaleString()}\n${lokasiText}\nWaktu: ${tanggal}\n\nSaya sudah bayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`;
-        } else {
-            msg = `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*\n\nPesanan: ${detail}\nTotal: Rp ${total.toLocaleString()}\n${lokasiText}\nWaktu: ${tanggal}\n\nMetode: Bayar cash saat ambil pesanan di lokasi.`;
-        }
+        let lokasi = diningChoice.type === 'dinein' ? `Makan di tempat - Bangku ${diningChoice.bangku}` : 'Bawa pulang (Take Away)';
+        let msg = selectedPayment === 'qris' 
+            ? `*ORDER RESTAURANT DYNAN (QRIS)*\n\nPesanan: ${detail}\nTotal: Rp ${total.toLocaleString()}\n${lokasi}\nWaktu: ${tanggal}\nCatatan: ${diningChoice.catatan || '-'}\n\nSaya sudah bayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`
+            : `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*\n\nPesanan: ${detail}\nTotal: Rp ${total.toLocaleString()}\n${lokasi}\nWaktu: ${tanggal}\nCatatan: ${diningChoice.catatan || '-'}\n\nMetode: Bayar cash saat ambil pesanan di lokasi.`;
         window.open(`https://wa.me/6283180072584?text=${encodeURIComponent(msg)}`, '_blank');
-        cart = []; updateCartSummary(); refreshAllQty();
+        cart = []; updateSum(); refreshAll();
         paymentModal.style.display = 'none';
-        alert("✅ Pesanan dikirim ke kasir. Terima kasih!");
+        alert("✅ Pesanan terkirim ke WA. Terima kasih!");
     });
-
-    function closeModals() {
-        diningModal.style.display = 'none';
-        paymentModal.style.display = 'none';
-    }
+    function closeModals() { diningModal.style.display = 'none'; paymentModal.style.display = 'none'; }
     document.getElementById('closeDiningModal')?.addEventListener('click', closeModals);
     document.getElementById('closePaymentModal')?.addEventListener('click', closeModals);
     window.onclick = e => { if(e.target.classList.contains('modal')) closeModals(); };
+    document.getElementById('bayarQRISBtn')?.addEventListener('click', () => openDining('qris'));
+    document.getElementById('bayarCashBtn')?.addEventListener('click', () => openDining('cash'));
 
-    document.getElementById('bayarQRISBtn')?.addEventListener('click', () => showDiningModal('qris'));
-    document.getElementById('bayarCashBtn')?.addEventListener('click', () => showDiningModal('cash'));
-
-    // Navigasi: hanya toggle antara beranda & pesan, tanpa link pesan di navbar
     const berandaLink = document.querySelector('[data-page="beranda"]');
     const pesanPage = document.getElementById('pesan-page');
     const berandaPage = document.getElementById('beranda-page');
-    const tombolPesan = document.getElementById('tombolKePesan');
-
-    tombolPesan?.addEventListener('click', () => {
+    document.getElementById('tombolKePesan')?.addEventListener('click', () => {
         berandaPage.classList.remove('active-page');
         pesanPage.classList.add('active-page');
         berandaLink.classList.remove('active');
-        refreshAllQty();
+        refreshAll();
     });
-
-    // Navbar hanya ada beranda, jadi kembali ke beranda jika klik beranda
     berandaLink?.addEventListener('click', (e) => {
         e.preventDefault();
         pesanPage.classList.remove('active-page');
         berandaPage.classList.add('active-page');
         berandaLink.classList.add('active');
     });
-
-    // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const themeText = document.getElementById('themeText');
     themeToggle?.addEventListener('click', () => {
         document.body.classList.toggle('dark');
-        if(document.body.classList.contains('dark')) {
-            themeIcon.className = 'fas fa-moon';
-            themeText.innerText = 'Gelap';
-        } else {
-            themeIcon.className = 'fas fa-sun';
-            themeText.innerText = 'Terang';
-        }
+        let isDark = document.body.classList.contains('dark');
+        document.getElementById('themeIcon').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+        document.getElementById('themeText').innerText = isDark ? 'Gelap' : 'Terang';
     });
-
-    renderCards(makanan, 'makananGrid');
-    renderCards(minuman, 'minumanGrid');
+    renderGrid(makanan, 'makananGrid');
+    renderGrid(minuman, 'minumanGrid');
     attachEvents();
-    updateCartSummary();
+    updateSum();
 </script>
 </body>
 </html>
