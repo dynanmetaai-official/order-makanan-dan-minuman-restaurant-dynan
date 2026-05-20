@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RESTAURANT DYNAN | Fine Dining & Viral</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Tema Terang (default) */
+        :root {
+            --bg-body: #fefaf5;
+            --bg-card: #ffffff;
+            --text-primary: #2c2418;
+            --text-secondary: #5c4b37;
+            --accent: #b85c1a;
+            --accent-light: #e67e22;
+            --border: #f0e4d5;
+            --shadow: 0 10px 30px -12px rgba(0,0,0,0.08);
+            --hero-bg: linear-gradient(135deg, #fff6ed 0%, #ffeedd 100%);
+            --navbar-bg: rgba(255, 255, 255, 0.96);
+            --footer-bg: #2c2418;
+            --footer-text: #d1c0b0;
+        }
+
+        body.dark {
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --text-primary: #f0ede8;
+            --text-secondary: #c0b8a8;
+            --accent: #e67e22;
+            --accent-light: #f39c12;
+            --border: #2c2c2c;
+            --shadow: 0 10px 30px -8px rgba(0,0,0,0.5);
+            --hero-bg: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            --navbar-bg: rgba(30, 30, 30, 0.96);
+            --footer-bg: #0a0a0a;
+            --footer-text: #8a7a6a;
+        }
+
+        body {
+            background: var(--bg-body);
+            color: var(--text-primary);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--navbar-bg);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), #f4a261);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 0.4rem 0;
+        }
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 60px;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            gap: 8px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .active-page {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Hero Beranda */
+        .hero {
+            background: var(--hero-bg);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border);
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), #e67e22);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            margin: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+        .rating i {
+            color: #fbbf24;
+        }
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .contact-card {
+            background: var(--bg-card);
+            padding: 1rem 2rem;
+            border-radius: 90px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .location-card {
+            background: var(--bg-card);
+            padding: 1.2rem;
+            border-radius: 1.5rem;
+            max-width: 400px;
+            margin: 1.5rem auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+        .btn-pesan {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 60px;
+            cursor: pointer;
+            margin: 2rem 0 1rem;
+            box-shadow: 0 4px 12px rgba(184,92,26,0.3);
+        }
+
+        /* Menu Produk */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2rem 0 1.2rem;
+            border-left: 6px solid var(--accent);
+            padding-left: 1rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 1rem 1.2rem 1.2rem;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 0.5rem 0;
+        }
+        .badge-populer {
+            background: #fbbf24;
+            color: #2c2418;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .qty-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 1rem 0;
+        }
+        .qty-select button {
+            background: var(--border);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .cart-bar {
+            background: var(--bg-card);
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            margin: 2rem 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            bottom: 20px;
+            z-index: 99;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .btn-bayar {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top:0;left:0;
+            width:100%;height:100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: var(--bg-card);
+            max-width: 460px;
+            width: 90%;
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .modal-content img {
+            max-width: 180px;
+            margin: 0.5rem auto;
+        }
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 700px) {
+            .nav-container { flex-direction: column; }
+            .cart-bar { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h1>RESTAURANT DYNAN</h1>
+            <span>✦ Fine Dining • Viral ✦</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" data-page="beranda" class="nav-link active">BERANDA</a>
+            <a href="#" data-page="pesan" class="nav-link">PESAN</a>
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i> <span>|</span> <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- HALAMAN BERANDA -->
+    <div id="beranda-page" class="page active-page">
+        <div class="hero">
+            <h2>✨ SELAMAT DATANG ✨</h2>
+            <p style="font-size:1.1rem; margin:0.5rem 0;">Restaurant DYNAN — tempatnya cita rasa Nusantara & Internasional</p>
+            <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>5.0 (2.345+ ulasan) | ★ Restoran Terbaik 2024-2025</span>
+            </div>
+        </div>
+        <div class="contact-row">
+            <div class="contact-card"><i class="fab fa-whatsapp fa-2x" style="color:#25D366;"></i> <span>+6283180072584</span></div>
+            <div class="contact-card"><i class="fab fa-instagram fa-2x" style="color:#E4405F;"></i> <span>@nannhtgl</span></div>
+        </div>
+        <div class="location-card">
+            <i class="fas fa-location-dot fa-xl" style="color:var(--accent);"></i>
+            <span>📍 JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut</span>
+        </div>
+        <div style="text-align: center;">
+            <button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAHKAN PESAN</button>
+        </div>
+        <p style="text-align:center; margin-top:2rem; font-style:italic;">"Rasakan sensasi kuliner viral dengan pelayanan bintang 5" — Chef DYNAN</p>
+    </div>
+
+    <!-- HALAMAN PESAN -->
+    <div id="pesan-page" class="page">
+        <div class="section-title"><i class="fas fa-egg"></i> MAKANAN SIGNATURE</div>
+        <div class="product-grid" id="makananGrid"></div>
+        
+        <div class="section-title"><i class="fas fa-mug-hot"></i> MINUMAN SEGAR</div>
+        <div class="product-grid" id="minumanGrid"></div>
+
+        <!-- Cart & Bayar -->
+        <div class="cart-bar">
+            <div><i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span></div>
+            <div style="display: flex; gap: 12px;">
+                <button class="btn-bayar" id="bayarQRISBtn"><i class="fas fa-qrcode"></i> QRIS</button>
+                <button class="btn-bayar" id="bayarCashBtn" style="background: #2c6e2f;"><i class="fas fa-money-bill"></i> Bayar di Tempat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>© 2025 RESTAURANT DYNAN | Premium Taste, Viral Sensation</footer>
+
+<!-- Modal QRIS -->
+<div id="modalQRIS" class="modal">
+    <div class="modal-content">
+        <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closeModalQR">&times;</span>
+        <h3><i class="fas fa-qrcode"></i> Scan QRIS</h3>
+        <div id="orderSummaryQR"></div>
+        <img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" alt="QRIS" style="width:180px;">
+        <p style="margin-top:10px;">Setelah scan & bayar, tekan tombol kirim bukti</p>
+        <button class="btn-bayar" id="confirmQRIS" style="background:var(--accent);">✅ Kirim Bukti ke WA</button>
+    </div>
+</div>
+
+<script>
+    // DATA MENU
+    const makanan = [
+        { id:"nasgor", name:"Nasi Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-91cac7b8-c84a-45d1-b61f-02e549996f86.jpg", best:true },
+        { id:"ifumie", name:"Ifumie Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-c49c62f3-2524-466f-815f-c9373d3c019b.jpg", best:false },
+        { id:"capcai", name:"Capcai", price:20000, img:"https://cdn.phototourl.com/free/2026-05-20-a37e92f3-76fe-4dfa-80a7-1245e95d3921.jpg", best:true },
+        { id:"mihungoreng", name:"Mi Hun Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-a03a1039-9e9a-406b-be10-73d57d19792f.jpg", best:false },
+        { id:"mihunkuah", name:"Mi Hun Kuah", price:18000, img:"https://cdn.phototourl.com/free/2026-05-20-8bcd687a-b7e7-4590-b5e6-ded5da374442.jpg", best:false }
+    ];
+    const minuman = [
+        { id:"teh", name:"Teh Manis Dingin", price:5000, img:"https://cdn.phototourl.com/free/2026-05-20-b91e3b67-dc0f-4383-b0d7-18cf28ff7440.jpg", best:false },
+        { id:"cola", name:"Coca Cola", price:8000, img:"https://cdn.phototourl.com/free/2026-05-20-2e613721-c153-4702-8a85-9243be5f0b78.jpg", best:false },
+        { id:"tehpucuk", name:"Teh Pucuk", price:6000, img:"https://cdn.phototourl.com/free/2026-05-20-de2cdcdf-8692-4ef2-a052-40266270f5ab.jpg", best:false },
+        { id:"sosro", name:"Teh Botol Sosro", price:7000, img:"https://cdn.phototourl.com/free/2026-05-20-9cf11c10-ec82-4071-9cef-6c541ad2d301.jpg", best:true }
+    ];
+    let cart = [];
+
+    function renderMakanan() {
+        let html = makanan.map(item => `
+            <div class="card">
+                <img class="card-img" src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300?text=Food'">
+                <div class="card-body">
+                    ${item.best ? '<div class="badge-populer">⭐ BEST SELLER</div>' : ''}
+                    <h3>${item.name}</h3>
+                    <div class="price">Rp ${item.price.toLocaleString()}</div>
+                    <div class="qty-select">
+                        <button class="dec" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">-</button>
+                        <span id="qty-${item.id}">0</span>
+                        <button class="inc" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">+</button>
+                    </div>
+                    <button class="btn-bayar add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" style="width:100%;">+ Keranjang</button>
+                </div>
+            </div>
+        `).join('');
+        document.getElementById('makananGrid').innerHTML = html;
+    }
+    function renderMinuman() {
+        let html = minuman.map(item => `
+            <div class="card">
+                <img class="card-img" src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300?text=Drink'">
+                <div class="card-body">
+                    ${item.best ? '<div class="badge-populer">⭐ BEST SELLER</div>' : ''}
+                    <h3>${item.name}</h3>
+                    <div class="price">Rp ${item.price.toLocaleString()}</div>
+                    <div class="qty-select">
+                        <button class="dec" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">-</button>
+                        <span id="qty-${item.id}">0</span>
+                        <button class="inc" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">+</button>
+                    </div>
+                    <button class="btn-bayar add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" style="width:100%;">+ Keranjang</button>
+                </div>
+            </div>
+        `).join('');
+        document.getElementById('minumanGrid').innerHTML = html;
+        attachEvents();
+    }
+
+    function attachEvents() {
+        document.querySelectorAll('.inc').forEach(btn => btn.addEventListener('click', incHandler));
+        document.querySelectorAll('.dec').forEach(btn => btn.addEventListener('click', decHandler));
+        document.querySelectorAll('.add-to-cart').forEach(btn => btn.addEventListener('click', addToCartHandler));
+    }
+    function incHandler(e) {
+        let id = e.currentTarget.dataset.id, name = e.currentTarget.dataset.name, price = parseInt(e.currentTarget.dataset.price);
+        let ex = cart.find(i=>i.id===id);
+        if(ex) ex.quantity++;
+        else cart.push({id,name,price,quantity:1});
+        updateQtyDisplay(id);
+        updateCartSummary();
+    }
+    function decHandler(e) {
+        let id = e.currentTarget.dataset.id;
+        let idx = cart.findIndex(i=>i.id===id);
+        if(idx !== -1) {
+            if(cart[idx].quantity>1) cart[idx].quantity--;
+            else cart.splice(idx,1);
+        }
+        updateQtyDisplay(id);
+        updateCartSummary();
+    }
+    function addToCartHandler(e) {
+        let id = e.currentTarget.dataset.id, name = e.currentTarget.dataset.name, price = parseInt(e.currentTarget.dataset.price);
+        let ex = cart.find(i=>i.id===id);
+        if(ex) ex.quantity++;
+        else cart.push({id,name,price,quantity:1});
+        updateQtyDisplay(id);
+        updateCartSummary();
+        alert(`✅ ${name} ditambahkan`);
+    }
+    function updateQtyDisplay(id) {
+        let span = document.getElementById(`qty-${id}`);
+        if(span) {
+            let item = cart.find(i=>i.id===id);
+            span.innerText = item ? item.quantity : 0;
+        }
+    }
+    function updateCartSummary() {
+        let totalItems = cart.reduce((s,i)=>s+i.quantity,0);
+        let totalPrice = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
+        document.getElementById('totalItemsCount').innerText = totalItems;
+        document.getElementById('totalPricePreview').innerText = totalPrice.toLocaleString();
+    }
+
+    function refreshAllQty() {
+        [...makanan, ...minuman].forEach(p => updateQtyDisplay(p.id));
+    }
+
+    // Modal & Payment
+    const modalQR = document.getElementById('modalQRIS');
+    let currentTotal = 0;
+    let currentDetail = "";
+
+    function openQRIS() {
+        if(cart.length===0) { alert("Keranjang kosong, pilih menu dulu."); return; }
+        let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
+        let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
+        currentTotal = total;
+        currentDetail = detail;
+        let orderHtml = `<p><strong>Pesanan:</strong> ${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p>`;
+        document.getElementById('orderSummaryQR').innerHTML = orderHtml;
+        modalQR.style.display = 'flex';
+    }
+
+    function bayarDiTempat() {
+        if(cart.length===0) { alert("Keranjang kosong."); return; }
+        let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
+        let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
+        let now = new Date();
+        let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
+        let msg = `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*%0A%0APesanan: ${detail}%0ATotal: Rp ${total.toLocaleString()}%0AWaktu: ${tanggal}%0A%0A(Metode: Bayar cash saat ambil pesanan di lokasi)`;
+        window.open(`https://wa.me/6283180072584?text=${msg}`, '_blank');
+        cart = []; updateCartSummary(); refreshAllQty();
+        alert("Pesanan dikirim ke kasir. Siapkan uang cash saat ambil pesanan.");
+    }
+
+    document.getElementById('confirmQRIS')?.addEventListener('click', ()=>{
+        if(cart.length===0) return;
+        let now = new Date();
+        let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
+        let msg = `*ORDER RESTAURANT DYNAN (QRIS)*%0A%0APesanan: ${currentDetail}%0ATotal: Rp ${currentTotal.toLocaleString()}%0ATanggal: ${tanggal}%0A%0ASaya telah membayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`;
+        window.open(`https://wa.me/6283180072584?text=${msg}`, '_blank');
+        cart = []; updateCartSummary(); refreshAllQty();
+        modalQR.style.display = 'none';
+        alert("Bukti transfer segera kirim ke WA admin");
+    });
+    document.getElementById('closeModalQR')?.addEventListener('click', ()=> modalQR.style.display = 'none');
+    window.onclick = e => { if(e.target === modalQR) modalQR.style.display = 'none'; };
+
+    // Navigasi & Tema
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            let page = link.dataset.page;
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.getElementById(`${page}-page`).classList.add('active-page');
+            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+            link.classList.add('active');
+            if(page === 'pesan') refreshAllQty();
+        });
+    });
+    document.getElementById('tombolKePesan')?.addEventListener('click', () => {
+        document.querySelector('[data-page="pesan"]').click();
+    });
+    document.getElementById('bayarQRISBtn')?.addEventListener('click', openQRIS);
+    document.getElementById('bayarCashBtn')?.addEventListener('click', bayarDiTempat);
+
+    // Theme toggler
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+    });
+
+    renderMakanan();
+    renderMinuman();
+    updateCartSummary();
+</script>
+</body>
+</html>
