@@ -60,7 +60,6 @@
             color: var(--text-primary);
         }
 
-        /* Navbar Elegan */
         .navbar {
             background: var(--bg-nav);
             backdrop-filter: blur(16px);
@@ -88,7 +87,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
         }
         .logo span {
             font-size: 0.7rem;
@@ -124,11 +122,6 @@
             color: var(--accent-gold);
             transition: 0.2s;
         }
-        .theme-toggle:hover {
-            background: var(--accent-gold);
-            color: #1e1a16;
-        }
-
         .container {
             max-width: 1300px;
             margin: 2rem auto;
@@ -145,8 +138,6 @@
             from { opacity: 0; transform: translateY(25px);}
             to { opacity: 1; transform: translateY(0);}
         }
-
-        /* Hero Section */
         .hero {
             background: var(--hero-bg);
             border-radius: 2rem;
@@ -157,16 +148,6 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-        }
-        .hero::before {
-            content: "✦";
-            font-size: 12rem;
-            position: absolute;
-            bottom: -40px;
-            right: -30px;
-            opacity: 0.04;
-            font-family: serif;
-            pointer-events: none;
         }
         .hero h2 {
             font-family: 'Cormorant Garamond', serif;
@@ -188,9 +169,6 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--accent-gold);
         }
-        .rating i {
-            color: var(--accent-gold);
-        }
         .contact-grid {
             display: flex;
             justify-content: center;
@@ -209,11 +187,6 @@
             border: 1px solid var(--border);
             transition: all 0.2s ease;
         }
-        .contact-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
         .location-card {
             background: var(--bg-card);
             padding: 1rem 1.8rem;
@@ -225,10 +198,6 @@
             gap: 15px;
             justify-content: center;
             border: 1px solid var(--border);
-            transition: 0.2s;
-        }
-        .location-card:hover {
-            border-color: var(--accent-gold);
         }
         .location-card a {
             color: var(--accent-gold);
@@ -248,12 +217,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
         }
-        .btn-pesan:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
-        }
-
-        /* Menu Products - Foto BESAR & RAPI */
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -275,17 +238,11 @@
             border: 1px solid var(--border);
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-gold);
-            box-shadow: var(--shadow-lg);
-        }
         .card-img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             transition: transform 0.4s ease;
-            display: block;
         }
         .card:hover .card-img {
             transform: scale(1.03);
@@ -330,12 +287,6 @@
             font-weight: bold;
             font-size: 1.3rem;
             cursor: pointer;
-            transition: 0.15s;
-            color: var(--text-primary);
-        }
-        .qty-select button:hover {
-            background: var(--accent-gold);
-            color: #1e1a16;
         }
         .btn-add-cart {
             background: var(--bg-card);
@@ -346,18 +297,11 @@
             border-radius: 60px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
-        .btn-add-cart:hover {
-            background: var(--accent-gold);
-            color: #1e1a16;
-        }
-
-        /* Cart Bar SUPER PREMIUM */
         .cart-bar {
             background: var(--bg-card);
             border-radius: 2rem;
@@ -373,15 +317,6 @@
             z-index: 99;
             border: 1.5px solid var(--accent-gold);
             box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(8px);
-        }
-        .cart-info {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        .cart-info i {
-            color: var(--accent-gold);
-            margin-right: 8px;
         }
         .payment-buttons {
             display: flex;
@@ -395,22 +330,14 @@
             border-radius: 60px;
             font-weight: 800;
             cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-        .btn-bayar:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
         .btn-cash {
             background: linear-gradient(135deg, #2c6e2f, #1e4a20);
             color: white;
         }
-
-        /* Modal QRIS */
         .modal {
             display: none;
             position: fixed;
@@ -424,19 +351,24 @@
         }
         .modal-content {
             background: var(--bg-card);
-            max-width: 480px;
+            max-width: 500px;
             width: 90%;
             border-radius: 2rem;
             padding: 2rem;
             text-align: center;
             border: 2px solid var(--accent-gold);
-            box-shadow: var(--shadow-lg);
         }
-        .modal-content img {
-            max-width: 200px;
-            margin: 0.8rem auto;
-            border-radius: 1rem;
+        .modal-content select, .modal-content button {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 60px;
+            font-weight: bold;
+            width: 100%;
+        }
+        .modal-content select {
+            background: var(--bg-card);
             border: 1px solid var(--accent-gold);
+            color: var(--text-primary);
         }
         footer {
             background: var(--footer-bg);
@@ -444,14 +376,11 @@
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            font-size: 0.8rem;
             border-top: 1px solid var(--accent-gold);
         }
         @media (max-width: 700px) {
             .nav-container { flex-direction: column; text-align: center; }
-            .hero h2 { font-size: 2rem; }
             .cart-bar { flex-direction: column; text-align: center; }
-            .payment-buttons { width: 100%; justify-content: center; }
             .card-img { height: 240px; }
         }
     </style>
@@ -476,21 +405,20 @@
 </div>
 
 <div class="container">
-    <!-- BERANDA -->
     <div id="beranda-page" class="page active-page">
         <div class="hero">
             <h2>✨ SELAMAT DATANG ✨</h2>
-            <p style="font-size:1.1rem; margin:0.5rem 0;">Fine Dining Nusantara & Internasional</p>
+            <p style="font-size:1.1rem;">Fine Dining Nusantara & Internasional</p>
             <div class="rating">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <span>5.0 ★ Restoran Terbaik 2024-2025</span>
             </div>
         </div>
         <div class="contact-grid">
-            <div class="contact-card"><i class="fab fa-whatsapp fa-lg" style="color:#25D366;"></i> <span>+6283180072584</span></div>
-            <div class="contact-card"><i class="fab fa-instagram fa-lg" style="color:#E4405F;"></i> <span>@nannhtgl</span></div>
-            <div class="contact-card"><i class="fab fa-tiktok fa-lg"></i> <span>@dyynotdev</span></div>
-            <div class="contact-card"><i class="fab fa-telegram fa-lg" style="color:#26A5E4;"></i> <span>@dynanniwe</span></div>
+            <div class="contact-card"><i class="fab fa-whatsapp fa-lg" style="color:#25D366;"></i> +6283180072584</div>
+            <div class="contact-card"><i class="fab fa-instagram fa-lg" style="color:#E4405F;"></i> @nannhtgl</div>
+            <div class="contact-card"><i class="fab fa-tiktok fa-lg"></i> @dyynotdev</div>
+            <div class="contact-card"><i class="fab fa-telegram fa-lg" style="color:#26A5E4;"></i> @dynanniwe</div>
         </div>
         <div class="location-card">
             <i class="fas fa-location-dot fa-lg" style="color:var(--accent-gold);"></i>
@@ -499,20 +427,16 @@
         <div style="text-align: center;">
             <button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAKAN PESAN</button>
         </div>
-        <p style="text-align:center; margin-top:2rem; font-style:italic; color:var(--accent-gold); font-weight:500;">"Rasakan kemewahan cita rasa, hanya di RESTAURANT DYNAN"</p>
+        <p style="text-align:center; margin-top:2rem; font-style:italic; color:var(--accent-gold);">"Rasakan kemewahan cita rasa, hanya di RESTAURANT DYNAN"</p>
     </div>
 
-    <!-- HALAMAN PESAN -->
     <div id="pesan-page" class="page">
         <div class="section-title"><i class="fas fa-egg"></i> MAKANAN SIGNATURE</div>
         <div class="product-grid" id="makananGrid"></div>
         <div class="section-title"><i class="fas fa-mug-hot"></i> MINUMAN PREMIUM</div>
         <div class="product-grid" id="minumanGrid"></div>
-
         <div class="cart-bar">
-            <div class="cart-info">
-                <i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span>
-            </div>
+            <div><i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span></div>
             <div class="payment-buttons">
                 <button class="btn-bayar" id="bayarQRISBtn"><i class="fas fa-qrcode"></i> QRIS</button>
                 <button class="btn-bayar btn-cash" id="bayarCashBtn"><i class="fas fa-money-bill"></i> Bayar di Tempat</button>
@@ -521,21 +445,46 @@
     </div>
 </div>
 
-<footer>© 2025 RESTAURANT DYNAN | Ultra Premium Fine Dining • Viral Sensation • Bintang 5</footer>
+<footer>© 2025 RESTAURANT DYNAN | Ultra Premium Fine Dining</footer>
 
-<div id="modalQRIS" class="modal">
+<!-- Modal Pilihan Makan Disini / Bawa Pulang -->
+<div id="diningOptionModal" class="modal">
     <div class="modal-content">
-        <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closeModalQR">&times;</span>
-        <h3><i class="fas fa-qrcode"></i> SCAN QRIS</h3>
-        <div id="orderSummaryQR"></div>
-        <img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" alt="QRIS">
-        <p style="margin:10px 0;">Setelah bayar, tekan tombol kirim bukti</p>
-        <button class="btn-bayar" id="confirmQRIS" style="width:100%;">✅ Kirim Bukti ke WA</button>
+        <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closeDiningModal">&times;</span>
+        <h3><i class="fas fa-utensils"></i> Opsi Pemesanan</h3>
+        <div id="orderSummaryDining"></div>
+        <select id="diningOption">
+            <option value="takeaway">🍱 Bawa Pulang (Take Away)</option>
+            <option value="dinein">🍽️ Makan di Sini</option>
+        </select>
+        <div id="bangkuSelectWrapper" style="display: none;">
+            <select id="bangkuNumber">
+                <option value="">Pilih Nomor Bangku</option>
+                <option value="1">Bangku 1</option><option value="2">Bangku 2</option><option value="3">Bangku 3</option>
+                <option value="4">Bangku 4</option><option value="5">Bangku 5</option><option value="6">Bangku 6</option>
+                <option value="7">Bangku 7</option><option value="8">Bangku 8</option><option value="9">Bangku 9</option>
+                <option value="10">Bangku 10</option>
+            </select>
+        </div>
+        <button id="confirmDiningBtn" class="btn-bayar" style="margin-top:1rem;">✅ Lanjutkan ke Pembayaran</button>
+    </div>
+</div>
+
+<!-- Modal QRIS / Cash akan tetap pakai modal sendiri, tapi kita gabung prosesnya -->
+<div id="paymentExecModal" class="modal">
+    <div class="modal-content">
+        <span style="float: right; font-size: 1.8rem; cursor: pointer;" id="closePaymentExec">&times;</span>
+        <h3 id="paymentMethodTitle"></h3>
+        <div id="paymentSummary"></div>
+        <div id="qrisImageWrapper" style="display: none;">
+            <img src="https://cdn.phototourl.com/free/2026-05-19-c8dff253-2075-47f2-aab7-76b05aa79c6b.jpg" alt="QRIS" style="max-width:180px; margin:1rem auto;">
+            <p style="margin:10px 0;">Scan QRIS, lalu tekan tombol kirim bukti</p>
+        </div>
+        <button id="finalSendWA" class="btn-bayar" style="width:100%;">📤 Kirim ke WhatsApp</button>
     </div>
 </div>
 
 <script>
-    // DATA MENU
     const makanan = [
         { id:"nasgor", name:"Nasi Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-91cac7b8-c84a-45d1-b61f-02e549996f86.jpg", best:true },
         { id:"ifumie", name:"Ifumie Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-c49c62f3-2524-466f-815f-c9373d3c019b.jpg", best:false },
@@ -551,6 +500,8 @@
     ];
 
     let cart = [];
+    let selectedPaymentMethod = null; // 'qris' or 'cash'
+    let diningData = { option: '', bangku: '' };
 
     function renderCards(items, targetId) {
         let html = items.map(item => `
@@ -619,45 +570,76 @@
         [...makanan, ...minuman].forEach(p => updateQtyDisplay(p.id));
     }
 
-    // Modal dan Payment
-    const modalQR = document.getElementById('modalQRIS');
-    let currentTotal = 0, currentDetail = "";
+    const diningModal = document.getElementById('diningOptionModal');
+    const paymentExecModal = document.getElementById('paymentExecModal');
 
-    function openQRIS() {
-        if(cart.length===0) { alert("Keranjang masih kosong, pilih menu dulu."); return; }
-        let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
-        let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
-        currentTotal = total; currentDetail = detail;
-        document.getElementById('orderSummaryQR').innerHTML = `<p><strong>Pesanan:</strong><br>${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p>`;
-        modalQR.style.display = 'flex';
-    }
-
-    function bayarDiTempat() {
+    function showDiningModal(paymentType) {
         if(cart.length===0) { alert("Keranjang kosong."); return; }
+        selectedPaymentMethod = paymentType;
+        let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
+        let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
+        document.getElementById('orderSummaryDining').innerHTML = `<p><strong>Pesanan:</strong> ${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p>`;
+        diningModal.style.display = 'flex';
+    }
+
+    document.getElementById('diningOption').addEventListener('change', function() {
+        let wrapper = document.getElementById('bangkuSelectWrapper');
+        if(this.value === 'dinein') wrapper.style.display = 'block';
+        else wrapper.style.display = 'none';
+    });
+
+    document.getElementById('confirmDiningBtn').addEventListener('click', () => {
+        let option = document.getElementById('diningOption').value;
+        let bangku = document.getElementById('bangkuNumber').value;
+        if(option === 'dinein' && !bangku) { alert("Pilih nomor bangku terlebih dahulu."); return; }
+        diningData.option = option;
+        diningData.bangku = bangku;
+        diningModal.style.display = 'none';
+        // tampilkan modal eksekusi pembayaran
+        let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
+        let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
+        let metodeText = selectedPaymentMethod === 'qris' ? 'QRIS' : 'Bayar di Tempat (Cash)';
+        document.getElementById('paymentMethodTitle').innerHTML = `<i class="fas fa-credit-card"></i> ${metodeText}`;
+        let lokasiText = diningData.option === 'dinein' ? `Makan di tempat - Bangku ${diningData.bangku}` : 'Bawa pulang (Take Away)';
+        document.getElementById('paymentSummary').innerHTML = `<p>${detail}</p><p><strong>Total: Rp ${total.toLocaleString()}</strong></p><p>📍 ${lokasiText}</p>`;
+        if(selectedPaymentMethod === 'qris') {
+            document.getElementById('qrisImageWrapper').style.display = 'block';
+        } else {
+            document.getElementById('qrisImageWrapper').style.display = 'none';
+        }
+        paymentExecModal.style.display = 'flex';
+    });
+
+    document.getElementById('finalSendWA').addEventListener('click', () => {
+        if(cart.length===0) return;
         let total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
         let detail = cart.map(i=>`${i.name} (${i.quantity}x)`).join(', ');
         let now = new Date();
         let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-        let msg = `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*%0A%0APesanan: ${detail}%0ATotal: Rp ${total.toLocaleString()}%0AWaktu: ${tanggal}%0A%0AMetode: Bayar cash saat ambil pesanan di lokasi`;
-        window.open(`https://wa.me/6283180072584?text=${msg}`, '_blank');
+        let lokasiText = diningData.option === 'dinein' ? `Makan di tempat - Bangku ${diningData.bangku}` : 'Bawa pulang (Take Away)';
+        let msg = '';
+        if(selectedPaymentMethod === 'qris') {
+            msg = `*ORDER RESTAURANT DYNAN (QRIS)*%0A%0APesanan: ${detail}%0ATotal: Rp ${total.toLocaleString()}%0A${lokasiText}%0AWaktu: ${tanggal}%0A%0ASaya sudah bayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`;
+        } else {
+            msg = `*ORDER RESTAURANT DYNAN (BAYAR DI TEMPAT)*%0A%0APesanan: ${detail}%0ATotal: Rp ${total.toLocaleString()}%0A${lokasiText}%0AWaktu: ${tanggal}%0A%0AMetode: Bayar cash saat ambil pesanan di lokasi.`;
+        }
+        window.open(`https://wa.me/6283180072584?text=${encodeURIComponent(msg)}`, '_blank');
         cart = []; updateCartSummary(); refreshAllQty();
-        alert("✅ Pesanan dikirim ke kasir. Siapkan uang cash saat ambil pesanan.");
-    }
-
-    document.getElementById('confirmQRIS')?.addEventListener('click', ()=>{
-        if(cart.length===0) return;
-        let now = new Date();
-        let tanggal = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
-        let msg = `*ORDER RESTAURANT DYNAN (QRIS)*%0A%0APesanan: ${currentDetail}%0ATotal: Rp ${currentTotal.toLocaleString()}%0ATanggal: ${tanggal}%0A%0ASaya sudah bayar via QRIS, bukti transfer dilampirkan. Tolong proses pesanan saya.`;
-        window.open(`https://wa.me/6283180072584?text=${msg}`, '_blank');
-        cart = []; updateCartSummary(); refreshAllQty();
-        modalQR.style.display = 'none';
-        alert("✅ Kirim bukti transfer ke WA admin untuk segera diproses.");
+        paymentExecModal.style.display = 'none';
+        alert("✅ Pesanan dikirim ke kasir. Terima kasih!");
     });
-    document.getElementById('closeModalQR')?.addEventListener('click', ()=> modalQR.style.display = 'none');
-    window.onclick = e => { if(e.target === modalQR) modalQR.style.display = 'none'; };
 
-    // Navigasi & Tema
+    function closeModals() {
+        diningModal.style.display = 'none';
+        paymentExecModal.style.display = 'none';
+    }
+    document.getElementById('closeDiningModal')?.addEventListener('click', closeModals);
+    document.getElementById('closePaymentExec')?.addEventListener('click', closeModals);
+    window.onclick = e => { if(e.target === diningModal || e.target === paymentExecModal) closeModals(); };
+
+    document.getElementById('bayarQRISBtn')?.addEventListener('click', () => showDiningModal('qris'));
+    document.getElementById('bayarCashBtn')?.addEventListener('click', () => showDiningModal('cash'));
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -670,10 +652,7 @@
         });
     });
     document.getElementById('tombolKePesan')?.addEventListener('click', () => document.querySelector('[data-page="pesan"]').click());
-    document.getElementById('bayarQRISBtn')?.addEventListener('click', openQRIS);
-    document.getElementById('bayarCashBtn')?.addEventListener('click', bayarDiTempat);
 
-    // Theme Toggle (satu icon berubah)
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const themeText = document.getElementById('themeText');
