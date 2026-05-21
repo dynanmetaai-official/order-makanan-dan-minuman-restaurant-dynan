@@ -12,14 +12,11 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
             transition: background 0.3s ease, color 0.2s;
             overflow-x: hidden;
         }
-
-        /* Light Theme - Luxury Gold */
         :root {
             --bg-body: #fefcf8;
             --bg-card: rgba(255, 255, 255, 0.96);
@@ -35,7 +32,6 @@
             --footer-bg: #1a1510;
             --footer-text: #c9bbaa;
         }
-
         body.dark {
             --bg-body: #0f0e0c;
             --bg-card: rgba(22, 20, 18, 0.96);
@@ -49,25 +45,16 @@
             --footer-bg: #080706;
             --footer-text: #8a7b6c;
         }
-
-        body {
-            background: var(--bg-body);
-            color: var(--text-primary);
-        }
-
-        /* Preloader */
+        body { background: var(--bg-body); color: var(--text-primary); }
         #preloader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: var(--bg-body);
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.5s;
         }
         .loader {
             width: 50px;
@@ -77,17 +64,10 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Custom Scrollbar */
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--border); border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 10px; }
-
-        /* Navbar */
         .navbar {
             background: var(--bg-nav);
             backdrop-filter: blur(18px);
@@ -124,7 +104,6 @@
             text-decoration: none;
             font-weight: 500;
             color: var(--text-primary);
-            transition: 0.2s;
         }
         .nav-links a.active {
             color: var(--accent-gold);
@@ -139,12 +118,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.2s;
         }
-        .theme-toggle:hover {
-            transform: scale(1.02);
-        }
-
         .container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -154,15 +128,11 @@
             display: none;
             animation: fadeUp 0.6s ease;
         }
-        .active-page {
-            display: block;
-        }
+        .active-page { display: block; }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px);}
             to { opacity: 1; transform: translateY(0);}
         }
-
-        /* Hero dengan partikel & animasi */
         .hero {
             background: var(--hero-bg);
             border-radius: 2rem;
@@ -217,7 +187,6 @@
             border-radius: 60px;
             margin: 1rem 0;
             border: 1px solid var(--accent-gold);
-            backdrop-filter: blur(4px);
         }
         .contact-grid {
             display: flex;
@@ -235,6 +204,9 @@
             gap: 10px;
             border: 1px solid var(--border);
             transition: 0.25s;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
         }
         .contact-card:hover {
             border-color: var(--accent-gold);
@@ -244,17 +216,20 @@
             background: var(--bg-card);
             padding: 1rem 1.8rem;
             border-radius: 2rem;
-            max-width: 500px;
+            max-width: 550px;
             margin: 1.5rem auto;
             display: flex;
             align-items: center;
             gap: 15px;
             justify-content: center;
             border: 1px solid var(--border);
-        }
-        .location-card a {
-            color: var(--accent-gold);
+            transition: 0.2s;
             text-decoration: none;
+            color: var(--accent-gold);
+        }
+        .location-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
         }
         .btn-pesan {
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
@@ -266,29 +241,8 @@
             cursor: pointer;
             margin: 1.5rem 0;
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
         }
-        .btn-pesan::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        .btn-pesan:hover::after {
-            opacity: 1;
-        }
-        .btn-pesan:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px var(--accent-gold);
-        }
-
-        /* Jam Operasional */
+        .btn-pesan:hover { transform: scale(1.02); box-shadow: 0 0 20px var(--accent-gold); }
         .jam-operasional {
             background: var(--bg-card);
             border-radius: 1.5rem;
@@ -296,10 +250,7 @@
             margin: 1rem auto;
             max-width: 400px;
             border: 1px solid var(--accent-gold);
-            font-size: 0.9rem;
         }
-
-        /* Menu */
         .section-title {
             font-size: 1.8rem;
             font-family: 'Cormorant Garamond', serif;
@@ -319,27 +270,16 @@
             border: 1px solid var(--border);
             transition: 0.3s;
         }
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-gold);
-            box-shadow: var(--shadow-md);
-        }
+        .card:hover { transform: translateY(-6px); border-color: var(--accent-gold); }
         .card-img {
             width: 100%;
             height: 240px;
             object-fit: cover;
             transition: transform 0.4s;
         }
-        .card:hover .card-img {
-            transform: scale(1.03);
-        }
-        .card-body {
-            padding: 1.2rem;
-        }
-        .card h3 {
-            font-size: 1.3rem;
-            font-family: 'Cormorant Garamond', serif;
-        }
+        .card:hover .card-img { transform: scale(1.03); }
+        .card-body { padding: 1.2rem; }
+        .card h3 { font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; }
         .price {
             font-size: 1.4rem;
             font-weight: 700;
@@ -371,12 +311,8 @@
             border-radius: 50%;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.15s;
         }
-        .qty-select button:hover {
-            background: var(--accent-gold);
-            color: #1a1510;
-        }
+        .qty-select button:hover { background: var(--accent-gold); color: #1a1510; }
         .btn-add-cart {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
@@ -390,28 +326,25 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: 0.2s;
         }
-        .btn-add-cart:hover {
-            background: var(--accent-gold);
-            color: #1a1510;
-        }
-        .cart-bar {
+        .btn-add-cart:hover { background: var(--accent-gold); color: #1a1510; }
+        .sticky-cart-bar {
+            position: sticky;
+            top: 90px;
             background: var(--bg-card);
             border-radius: 1.5rem;
-            padding: 1rem 1.5rem;
-            margin: 2rem 0;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
             border: 1px solid var(--accent-gold);
+            z-index: 99;
+            backdrop-filter: blur(12px);
         }
-        .payment-buttons {
-            display: flex;
-            gap: 12px;
-        }
+        .payment-buttons { display: flex; gap: 12px; }
         .btn-bayar {
             background: var(--accent-gold);
             color: #1a1510;
@@ -423,16 +356,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.2s;
         }
-        .btn-bayar:hover {
-            transform: scale(1.02);
-        }
-        .btn-cash {
-            background: #2c6e2f;
-            color: white;
-        }
-        /* Modal */
+        .btn-cash { background: #2c6e2f; color: white; }
         .modal {
             display: none;
             position: fixed;
@@ -467,10 +392,6 @@
             border: 1px solid var(--accent-gold);
             color: var(--text-primary);
         }
-        .modal-content textarea {
-            border-radius: 1rem;
-            resize: vertical;
-        }
         footer {
             background: var(--footer-bg);
             color: var(--footer-text);
@@ -478,7 +399,6 @@
             padding: 2rem;
             margin-top: 3rem;
         }
-        /* Back to top */
         #backToTop {
             position: fixed;
             bottom: 30px;
@@ -497,12 +417,10 @@
             z-index: 99;
             border: none;
         }
-        #backToTop.show {
-            opacity: 1;
-        }
+        #backToTop.show { opacity: 1; }
         @media (max-width: 700px) {
             .nav-container { flex-direction: column; }
-            .cart-bar { flex-direction: column; }
+            .sticky-cart-bar { flex-direction: column; text-align: center; }
             .animate-title { font-size: 2rem; }
         }
     </style>
@@ -526,44 +444,39 @@
         <div class="hero" id="heroSection">
             <div class="animate-title">✨ SELAMAT DATANG ✨</div>
             <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 ★ Restoran Terbaik 2025-2026</span></div>
-            <div class="jam-operasional">
-                <i class="far fa-clock"></i> Buka Setiap Hari | 10:00 - 22:00
-            </div>
+            <div class="jam-operasional"><i class="far fa-clock"></i> Buka Setiap Hari | 10:00 - 22:00</div>
         </div>
         <div class="contact-grid">
-            <div class="contact-card"><i class="fab fa-whatsapp"></i> +6283180072584</div>
-            <div class="contact-card"><i class="fab fa-instagram"></i> @nannhtgl</div>
-            <div class="contact-card"><i class="fab fa-tiktok"></i> @dyynotdev</div>
-            <div class="contact-card"><i class="fab fa-telegram"></i> @dynanniwe</div>
+            <a href="https://wa.me/6283180072584" target="_blank" class="contact-card"><i class="fab fa-whatsapp"></i> +6283180072584</a>
+            <a href="https://instagram.com/nannhtgl" target="_blank" class="contact-card"><i class="fab fa-instagram"></i> @nannhtgl</a>
+            <a href="https://tiktok.com/@dyynotdev" target="_blank" class="contact-card"><i class="fab fa-tiktok"></i> @dyynotdev</a>
+            <a href="https://t.me/dynanniwe" target="_blank" class="contact-card"><i class="fab fa-telegram"></i> @dynanniwe</a>
         </div>
-        <div class="location-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <a href="https://maps.app.goo.gl/koArFgGmokUeWd5z5" target="_blank">JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut</a>
-        </div>
+        <a href="https://maps.app.goo.gl/koArFgGmokUeWd5z5" target="_blank" class="location-card">
+            <i class="fas fa-map-marker-alt"></i> 📍 JH7R+J7X Kp. Lalang, Kab. Deli Serdang, Sumut
+        </a>
         <div style="text-align:center"><button class="btn-pesan" id="tombolKePesan"><i class="fas fa-utensils"></i> SILAKAN PESAN</button></div>
-        <!-- Testimonial sederhana -->
         <div style="text-align:center; margin-top:2rem; font-style:italic; color:var(--accent-gold);">
             <i class="fas fa-quote-left"></i> Makanannya enak banget, tempatnya mewah! <i class="fas fa-quote-right"></i> — Chef Renatta
         </div>
     </div>
 
     <div id="pesan-page" class="page">
-        <div class="section-title">🍽️ MAKANAN SIGNATURE</div>
-        <div class="product-grid" id="makananGrid"></div>
-        <div class="section-title">🥤 MINUMAN PREMIUM</div>
-        <div class="product-grid" id="minumanGrid"></div>
-        <div class="cart-bar">
+        <div class="sticky-cart-bar" id="stickyCartBar">
             <span><i class="fas fa-shopping-cart"></i> <span id="totalItemsCount">0</span> item | Total: Rp <span id="totalPricePreview">0</span></span>
             <div class="payment-buttons">
                 <button class="btn-bayar" id="bayarQRISBtn"><i class="fas fa-qrcode"></i> QRIS</button>
                 <button class="btn-bayar btn-cash" id="bayarCashBtn"><i class="fas fa-money-bill"></i> Cash</button>
             </div>
         </div>
+        <div class="section-title">🍽️ MAKANAN SIGNATURE</div>
+        <div class="product-grid" id="makananGrid"></div>
+        <div class="section-title">🥤 MINUMAN PREMIUM</div>
+        <div class="product-grid" id="minumanGrid"></div>
     </div>
 </div>
 
 <footer>© 2025-2026 RESTAURANT DYNAN | Best Fine Dining Award | Presented by DYNAN GROUP</footer>
-
 <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <!-- Modal Pilihan Makan -->
@@ -597,7 +510,6 @@
 </div>
 
 <script>
-    // Data Menu
     const makanan = [
         { id:"n1", name:"Nasi Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-91cac7b8-c84a-45d1-b61f-02e549996f86.jpg", best:true },
         { id:"n2", name:"Ifumie Goreng", price:15000, img:"https://cdn.phototourl.com/free/2026-05-20-c49c62f3-2524-466f-815f-c9373d3c019b.jpg", best:false },
@@ -647,7 +559,6 @@
     function updateSum() { let totalItems=cart.reduce((s,i)=>s+i.quantity,0); let totalPrice=cart.reduce((s,i)=>s+(i.price*i.quantity),0); document.getElementById('totalItemsCount').innerText=totalItems; document.getElementById('totalPricePreview').innerText=totalPrice.toLocaleString(); }
     function refreshAll() { [...makanan,...minuman].forEach(p=>updateQty(p.id)); }
 
-    // Partikel emas
     function createParticles() {
         const hero = document.getElementById('heroSection');
         if(!hero) return;
@@ -663,15 +574,11 @@
     }
     createParticles();
 
-    // Preloader
     window.addEventListener('load', () => {
         document.getElementById('preloader').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('preloader').style.display = 'none';
-        }, 500);
+        setTimeout(() => { document.getElementById('preloader').style.display = 'none'; }, 500);
     });
 
-    // Back to top
     const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         if(window.scrollY > 300) backBtn.classList.add('show');
@@ -747,6 +654,7 @@
         berandaPage.classList.add('active-page');
         berandaLink.classList.add('active');
     });
+
     const themeToggle = document.getElementById('themeToggle');
     themeToggle?.addEventListener('click', () => {
         document.body.classList.toggle('dark');
@@ -754,6 +662,7 @@
         document.getElementById('themeIcon').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
         document.getElementById('themeText').innerText = isDark ? 'Gelap' : 'Terang';
     });
+
     renderGrid(makanan, 'makananGrid');
     renderGrid(minuman, 'minumanGrid');
     attachEvents();
